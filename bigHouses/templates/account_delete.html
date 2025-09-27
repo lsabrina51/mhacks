@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<head>
+    <title>Big Houses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<!-- CONTENT -->
+<body>
+    <!-- Link to / -->
+    <header class="header">
+        <div class = "header-left">
+            <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
+            <a href="/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="bigHouses"> </a> <h2>Big Houses</h2>
+        </div>
+
+        <!-- Include a link to /explore/ and /users/{logname}/. -->
+        <div class = "header-right">
+            <a href = "/explore/"> <h3>explore</h3></a>
+            <a href = "/users/{{ logname }}/"> <h3> {{ logname }} </h3></a>
+        </div>
+    </header>
+
+    <h1>{{ logname }}</h1>
+
+    <form action="{{ url_for('accounts')}}?target=/accounts/create/" method="post" enctype="multipart/form-data">
+        <input type="submit" name="delete" value="confirm delete account"/>
+        <input type="hidden" name="operation" value="delete"/>
+    </form>
+
+</body>

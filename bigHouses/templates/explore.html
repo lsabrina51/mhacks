@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<head>
+    <title>Big Houses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<!-- CONTENT -->
+<body>
+    <!-- Link to / -->
+    <header class="header">
+        <div class = "header-left">
+            <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
+            <a href="/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="bigHouses"> </a> <h2>Big Houses</h2>
+        </div>
+
+        <!-- Include a link to /explore/ and /users/{logname}/. -->
+        <div class = "header-right">
+            <a href = "/explore/"> <h3>explore</h3></a>
+            <a href = "/users/{{ logname }}/"> <h3> {{ logname }} </h3></a>
+        </div>
+    </header>
+
+    <h1>Discover people</h1>
+
+    {% for user in not_following %}
+        <a href="/users/{{ user.username }}/"><h4>{{user.username}}</h4></a>
+        <img src = "/uploads/{{user.filename}}" alt="profile pic">
+
+        <form action="{{ url_for('accounts')}}?target=/explore/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="follow" value="follow"/>
+            <input type="hidden" name="username" value="{{user.username}}"/>
+            <input type="hidden" name="operation" value="follow"/>
+        </form>
+    {% endfor %}
+
+</body>
+</html>

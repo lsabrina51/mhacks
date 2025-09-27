@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insta485</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body> 
+    <header>
+        <div class="logo-wrapper">
+            <div class="left">
+                <a href="/">
+                    <img src="/static/images/insta485_logo.png" alt="Site Logo" class="logo">
+                </a>
+                <div class="divider"></div>
+                <h1 id="site-title">
+                    <span class="first">Insta</span><span class="second">485</span>
+                </h1>
+            </div>
+
+            <div class="right">
+                <a href="/explore/" class="right-headers">explore</a>
+                <div class="divider"></div>
+                <a href="/users/{{ logname }}/" class="right-headers">{{ logname }}</a>
+            </div>
+        </div>
+    </header>
+    <h2>{{user}}</h2>
+    <div>
+        {% if logname == user %}
+            <a href="/accounts/edit/">Edit profile</a>
+            <form action="/accounts/logout/?target=/accounts/login/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="submit" name="logout" value="Logout"/>
+            </form>
+        {% elif logname_follows_username %}
+            following
+            <form action="/following/?target=/users/{{ user }}/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="submit" name="unfollow" value="unfollow"/>
+                <input type="hidden" name="username" value="{{user}}"/>
+                <input type="hidden" name="operation" value="unfollow"/>
+            </form>
+        {% else %}
+            not following
+            <form action="/following/?target=/users/{{user}}/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="submit" name="follow" value="follow"/>
+                <input type="hidden" name="username" value="{{user}}"/>
+                <input type="hidden" name="operation" value="follow"/>
+            </form>
+        {% endif %}
+    </div>
+    <h3>{{total_posts}} post{{'s' if total_posts != 1 else ''}}
+        <a href="/users/{{user}}/followers/"><strong>{{followers}} follower{{'s' if followers != 1 else ''}}</strong></a> 
+        <a href="/users/{{user}}/following/"><strong>{{following}} following</strong></a>
+    </h3>
+    <h3>{{fullname}}</h3>
+    {% if logname == user %}
+        <form action="/posts/?target=/users/{{ user }}/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="file" name="file" accept="image/*" required/>
+            <input type="submit" name="create_post" value="upload new post"/>
+            <input type="hidden" name="operation" value="create"/>
+        </form>
+    {% endif %}
+    {% if total_posts != 0 %}
+        {% for post in posts %}
+            <a href="/posts/{{post.postid}}/">
+                <img src="{{post.img_url}}" alt="Post Pic" class="profile-posts">
+            </a>
+        {% endfor %}
+    {% else %}
+        <h3>No posts yet.</h3>
+    {% endif %}
+</body>
+</html>

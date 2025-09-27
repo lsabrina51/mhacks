@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<head>
+    <title>Big Houses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<!-- CONTENT -->
+<body>
+    <!-- Link to / -->
+    <header class="header">
+        <div class = "header-left">
+            <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
+            <a href="/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="bigHouses"> </a> <h2>Big Houses</h2>
+        </div>
+
+        <!-- Include a link to /explore/ and /users/{logname}/. -->
+        <div class = "header-right">
+            <a href = "/explore/"> explore</a>
+            <a href = "/users/{{ logname }}/"> {{ logname }}</a>
+        </div>
+    </header>
+
+
+    <!-- Post owner and timestamp -->
+    <div class = "post-header">
+        <a href = "/users/{{post.owner}}/"> {{post.owner}}</a>
+        <a href = "/users/{{post.owner}}/"><img src = "/uploads/{{post.owner_pic}}" alt="profile pic"></a>
+
+        <a href = "/posts/{{post.postid}}/">{{timestamp}}</a>
+
+    </div>
+
+    <!-- Post image -->
+    <div class = post-img>
+        <img src = "/uploads/{{post.filename}}" alt = "image">
+    </div>
+
+    <!-- Likes and comments -->
+    <div class = "likes">
+        {{post.likes}} {{"like" if post.likes == 1 else "likes"}}
+    </div>
+
+    {% if post.like_owner != logname %}
+        <!-- Like the post -->
+        <form action="{{ url_for('update_likes')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="like"/>
+            <input type="hidden" name="postid" value="{{post.postid}}"/>
+            <input type="submit" name="like" value="like"/>
+        </form>
+    {% else %}
+        <!-- Unlike the post -->
+        <form action="{{ url_for('update_likes')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="unlike"/>
+            <input type="hidden" name="postid" value="{{post.postid}}"/>
+            <input type="submit" name="unlike" value="unlike"/>
+        </form>
+    {% endif %}
+
+    <div class = "comments">
+        {% for comment in post.comments %}
+            <a href = "/users/{{comment.owner}}/">{{comment.owner}}</a>
+            {{comment.text}}
+            <!-- DELETE comment if comment.owner is logname -->
+            {% if comment.owner == logname %}
+                <form action="{{ url_for('update_comments')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="operation" value="delete"/>
+                    <input type="hidden" name="commentid" value="{{comment.commentid}}"/>
+                    <input type="submit" name="uncomment" value="delete"/>
+                </form>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Make new comment on post -->
+    <form action="{{ url_for('update_comments')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="operation" value="create"/>
+        <input type="hidden" name="postid" value="{{post.postid}}"/>
+        <input type="text" name="text" required/>
+        <input type="submit" name="comment" value="comment"/>
+    </form>
+      
+    <!-- Delete post (if logname = post.owner)-->
+    {% if post.owner == logname %}
+        <form action="{{ url_for('post')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="delete"/>
+            <input type="hidden" name="postid" value="{{post.postid}}"/>
+            <input type="submit" name="delete" value="delete this post"/>
+        </form>
+    {% endif %}
+
+</body>
+</html>
+
