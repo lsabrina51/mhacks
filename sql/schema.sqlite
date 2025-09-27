@@ -1,0 +1,39 @@
+CREATE TABLE Students (
+    uniqname          VARCHAR(10) PRIMARY KEY,
+    name              VARCHAR(100),
+    phone_number      VARCHAR(20),
+    budget            DECIMAL(10,2),
+    preferred_location VARCHAR(100),
+    house_type_pref   VARCHAR(50),   -- Apartment, Dorm, House, Townhouse
+    room_type_pref    VARCHAR(50),   -- Studio, 1BR, Shared, etc.
+    move_in_date      DATE,
+    move_out_date     DATE,
+    grad_month        INT,
+    grad_year         INT
+);
+
+CREATE TABLE Housing (
+    housing_id      INT PRIMARY KEY,
+    contact_student_id INT,
+    street_address  VARCHAR(255),
+    city            VARCHAR(100),
+    state           VARCHAR(50),
+    zip_code        VARCHAR(20),
+    country         VARCHAR(50),
+    latitude        DECIMAL(9,6),
+    longitude       DECIMAL(9,6),
+    monthly_rent    DECIMAL(10,2),
+    house_type      VARCHAR(50),   -- Apartment, Dorm, House, Townhouse
+    room_type       VARCHAR(50),   -- Studio, 1BR, 2BR, Shared
+    availability_start DATE,
+    availability_end   DATE,
+    distance_to_campus DECIMAL(5,2),
+    wifi            BOOLEAN,
+    laundry         BOOLEAN,
+    parking         BOOLEAN,
+    pets_allowed    BOOLEAN,
+    furnished       BOOLEAN,
+    air_conditioning BOOLEAN,
+    utilities_included BOOLEAN,
+    FOREIGN KEY (contact_student_id) REFERENCES Students(student_id)
+);
