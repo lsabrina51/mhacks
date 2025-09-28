@@ -9,20 +9,67 @@
     
     <body>
         <header class="header">
-        <div class="header-left">
-            <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
-            <h2>Big Houses</h2>
-        </div>
+            <div class="header-left">
+                <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
+                <h2>Big Houses</h2>
+            </div>
 
-        <div class="header-right">
-            <a href="/explore/" class="nav-link">Explore</a>
-            <a href="/users/{{ logname }}/" class="nav-link active">{{ logname }}</a>
-            <form action="/accounts/logout/" method="POST" style="display:inline;">
-                <button type="submit" class="nav-link logout-btn">Log out</button>
-            </form>
-        </div>
-    </header>
+            <div class="header-right">
+                <a href="/explore/" class="nav-link">Explore</a>
+                <a href="/users/{{ logname }}/" class="nav-link active">{{ logname }}</a>
+                <form action="/accounts/logout/" method="POST" style="display:inline;">
+                    <button type="submit" class="nav-link logout-btn">Log out</button>
+                </form>
+            </div>
+        </header>
         
+        <section class="recommendations-section">
+            <h2>🤖 AI Recommendations for You</h2>
+            
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            <form action="/explore/dream-search" method="POST">
+                <div class="form-group">
+                    <label for="query">Describe your dream place!</label>
+                    <input type="text" id="query" name="query" 
+                           placeholder="e.g., 'cozy apartment near campus with parking'"
+                           value="{{ dream_query if dream_query else '' }}"> 
+                </div>
+                <button type="submit">Find My Dream Place</button>
+            </form>
+
+            {% if recommendations %}
+            <div class="recommendations-grid">
+                {% for rec in recommendations %}
+                <div class="recommendation-card">
+                    <div class="rec-score">{{ rec.score }}/10</div>
+                    <a href="/posts/{{ rec.housing_id }}/">
+                        <!-- <img src="{{ url_for('uploaded_file', filename=rec.img_url) }}" alt="Recommended property"> -->
+                        <h3>${{ rec.monthly_rent }}/month</h3>
+                        <p>{{ rec.address }}</p>
+                    </a>
+                    <div class="ai-reason">
+                        <strong>Why we recommend this:</strong>
+                        {{ rec.reason }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-recommendations">
+                <p>Submit your dream place description above to get personalized AI recommendations! 🏠✨</p>
+            </div>
+            {% endif %}
+        </section>
 
        <div class="feed">
         <h1 class = "explore_header">Explore Listings</h1>

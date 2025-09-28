@@ -169,6 +169,42 @@
     text-align: center;
 }
 
+/* Form Container for Edit Profile Page */
+.form-container {
+    padding: 2rem;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.form-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem 0;
+    box-sizing: border-box;
+}
+
+.form-card h1 {
+    color: #333;
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-card p {
+    color: #666;
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
 .login-header h1 {
     color: #333;
     margin: 0 0 0.5rem 0;
@@ -208,6 +244,18 @@
     box-sizing: border-box;
 }
 
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="tel"] {
+    background-color: #fafafa;
+}
+
+.form-group input[type="number"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="tel"]:focus {
+    background-color: white;
+}
+
 .form-group input:focus {
     outline: none;
     border-color: #0E2D9A;
@@ -218,7 +266,33 @@
     color: #999;
 }
 
-.login-btn {
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #0E2D9A;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.login-btn,
+.btn-submit {
     width: 100%;
     padding: 0.75rem;
     background: linear-gradient(135deg, #0E2D9A 0%, #93C1DE 100%);
@@ -230,6 +304,12 @@
     cursor: pointer;
     transition: transform 0.2s ease;
     margin-top: 1rem;
+}
+
+.login-btn:hover,
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(14, 45, 154, 0.3);
 }
 
 .follow-btn:hover,
@@ -319,11 +399,14 @@
 }
 
 .profile-preview {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #e0e0e0;
+    border: 3px solid #0E2D9A;
+    margin: 0.5rem 0 1rem 0;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-help {
@@ -359,6 +442,35 @@
 
 .action-link.danger:hover {
     background-color: #fdf2f2;
+}
+
+/* Form Footer Styles */
+.form-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.form-footer a {
+    color: #0E2D9A;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.form-footer a:hover {
+    color: #093a7a;
+    text-decoration: underline;
+}
+
+.form-footer a.danger {
+    color: #dc3545;
+}
+
+.form-footer a.danger:hover {
+    color: #b02a37;
 }
 
 /* File Input Styling */
@@ -1061,4 +1173,40 @@ body {
 .start-btn.active {
     color: #007bff;
     background-color: #e7f3ff;
+}
+
+/* Responsive Design for Form Container */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1rem;
+    }
+    
+    .form-card {
+        padding: 2rem 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .form-card h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 0.5rem;
+    }
+    
+    .form-card {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem 0;
+        border-radius: 0.75rem;
+    }
+    
+    .form-card h1 {
+        font-size: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
 }

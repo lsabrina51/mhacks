@@ -1,144 +1,569 @@
-2025-09-28 02:58:52,107 [DEBUG] Harmless debug Message
-2025-09-28 02:58:52,107 [INFO] Just an information
-2025-09-28 02:58:52,107 [WARNING] Its a Warning
-2025-09-28 02:58:52,107 [ERROR] Did you try to divide by zero
-2025-09-28 02:58:52,107 [CRITICAL] Internet is down
-2025-09-28 02:58:52,129 [WARNING]  * Debugger is active!
-2025-09-28 02:58:52,132 [INFO]  * Debugger PIN: 451-927-219
-2025-09-28 02:58:53,748 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:53] "GET / HTTP/1.1" 200 -
-2025-09-28 02:58:53,842 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 02:58:53,970 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 02:58:54,138 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:54] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 02:58:54,148 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:54] "[36mGET /uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:58:54,160 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:54] "[36mGET /uploads/104main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:58:55,862 [INFO] Logged in user: boone
-2025-09-28 02:58:55,862 [INFO] Posts fetched: [
+2025-09-28 09:42:14,772 [DEBUG] Harmless debug Message
+2025-09-28 09:42:14,772 [INFO] Just an information
+2025-09-28 09:42:14,772 [WARNING] Its a Warning
+2025-09-28 09:42:14,772 [ERROR] Did you try to divide by zero
+2025-09-28 09:42:14,772 [CRITICAL] Internet is down
+2025-09-28 09:42:14,799 [WARNING]  * Debugger is active!
+2025-09-28 09:42:14,811 [INFO]  * Debugger PIN: 143-418-702
+2025-09-28 09:42:18,638 [INFO] Dream place search by munchie: 'I want a cozy place'
+2025-09-28 09:42:18,639 [INFO] AI Recommendations: [
   {
-    "housing_id": 6,
-    "contact_student_uniqname": "kchen",
-    "street_address": "603 Packard St",
-    "city": "Ann Arbor",
-    "zip_code": "48105",
-    "state": "MI",
-    "monthly_rent": 1050,
-    "house_image": "105main1.jpg",
-    "user_image": "122a7d27ca1d7420a1072f695d9290fad4501a41.jpg",
-    "name": "Ken Chen",
-    "uniqname": "kchen"
+    "housing_id": 10,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1400,
+    "address": "1200 Catherine St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
   },
   {
     "housing_id": 9,
-    "contact_student_uniqname": "jamesl",
-    "street_address": "910 Church St",
-    "city": "Ann Arbor",
-    "zip_code": "48108",
-    "state": "MI",
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
     "monthly_rent": 1500,
-    "house_image": "108main1.jpg",
-    "user_image": "pfp1.jpg",
-    "name": "James Lee",
-    "uniqname": "jamesl"
-  }
-]
-2025-09-28 02:58:55,871 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:55] "GET /explore/ HTTP/1.1" 200 -
-2025-09-28 02:58:56,001 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:56] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
-2025-09-28 02:58:56,124 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:56] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 02:58:56,253 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:56] "GET /uploads/pfp1.jpg HTTP/1.1" 200 -
-2025-09-28 02:58:56,254 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:56] "GET /uploads/108main1.jpg HTTP/1.1" 200 -
-2025-09-28 02:58:56,255 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:56] "[36mGET /uploads/105main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:58:56,266 [INFO] 127.0.0.1 - - [28/Sep/2025 02:58:56] "[36mGET /uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:59:49,249 [INFO] Logged in user: boone
-2025-09-28 02:59:49,249 [INFO] Posts fetched: [
+    "address": "910 Church St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 8,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1450,
+    "address": "825 E University Ave, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 7,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1700,
+    "address": "711 Division St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
   {
     "housing_id": 6,
-    "contact_student_uniqname": "kchen",
-    "street_address": "603 Packard St",
-    "city": "Ann Arbor",
-    "zip_code": "48105",
-    "state": "MI",
+    "score": 8.0,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
     "monthly_rent": 1050,
-    "house_image": "105main1.jpg",
-    "user_image": "122a7d27ca1d7420a1072f695d9290fad4501a41.jpg",
-    "name": "Ken Chen",
-    "uniqname": "kchen"
+    "address": "603 Packard St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  }
+]
+2025-09-28 09:42:18,662 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "POST /explore/dream-search HTTP/1.1" 200 -
+2025-09-28 09:42:18,843 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "[33mGET /uploads/ HTTP/1.1[0m" 404 -
+2025-09-28 09:42:18,852 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:42:18,856 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:42:18,918 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:18,919 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:18,921 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:18,936 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:18] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:37,133 [INFO] Dream place search by munchie: 'I want a cozy place'
+2025-09-28 09:42:37,134 [INFO] AI Recommendations: [
+  {
+    "housing_id": 10,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1400,
+    "address": "1200 Catherine St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
   },
   {
     "housing_id": 9,
-    "contact_student_uniqname": "jamesl",
-    "street_address": "910 Church St",
-    "city": "Ann Arbor",
-    "zip_code": "48108",
-    "state": "MI",
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
     "monthly_rent": 1500,
-    "house_image": "108main1.jpg",
-    "user_image": "pfp1.jpg",
-    "name": "James Lee",
-    "uniqname": "jamesl"
-  }
-]
-2025-09-28 02:59:49,250 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:49] "GET /explore/ HTTP/1.1" 200 -
-2025-09-28 02:59:49,337 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:49] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
-2025-09-28 02:59:49,493 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 02:59:49,602 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:49] "[36mGET /uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:59:49,606 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:49] "[36mGET /uploads/105main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:59:49,609 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:49] "[36mGET /uploads/pfp1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:59:49,618 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:49] "[36mGET /uploads/108main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:59:51,956 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:51] "GET / HTTP/1.1" 200 -
-2025-09-28 02:59:52,062 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 02:59:52,200 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 02:59:52,294 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:52] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 02:59:52,298 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:52] "[36mGET /uploads/104main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 02:59:52,299 [INFO] 127.0.0.1 - - [28/Sep/2025 02:59:52] "[36mGET /uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:09,921 [INFO] Logged in user: boone
-2025-09-28 03:00:09,921 [INFO] Posts fetched: [
+    "address": "910 Church St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 8,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1450,
+    "address": "825 E University Ave, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 7,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1700,
+    "address": "711 Division St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
   {
     "housing_id": 6,
-    "contact_student_uniqname": "kchen",
-    "street_address": "603 Packard St",
-    "city": "Ann Arbor",
-    "zip_code": "48105",
-    "state": "MI",
+    "score": 8.0,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
     "monthly_rent": 1050,
-    "house_image": "105main1.jpg",
-    "user_image": "122a7d27ca1d7420a1072f695d9290fad4501a41.jpg",
-    "name": "Ken Chen",
-    "uniqname": "kchen"
+    "address": "603 Packard St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  }
+]
+2025-09-28 09:42:37,158 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:37] "POST /explore/dream-search HTTP/1.1" 200 -
+2025-09-28 09:42:37,246 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:37] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:42:37,247 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:37] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:42:37,248 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:37] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:37,249 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:37] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:37,249 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:37] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:37,249 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:37] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:42:42,902 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:42] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:42:42,909 [INFO] 127.0.0.1 - - [28/Sep/2025 09:42:42] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:44:54,242 [INFO] Dream place search by munchie: 'I want a cozy place'
+2025-09-28 09:44:54,243 [INFO] AI Recommendations: [
+  {
+    "housing_id": 10,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1400,
+    "address": "1200 Catherine St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
   },
   {
     "housing_id": 9,
-    "contact_student_uniqname": "jamesl",
-    "street_address": "910 Church St",
-    "city": "Ann Arbor",
-    "zip_code": "48108",
-    "state": "MI",
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
     "monthly_rent": 1500,
-    "house_image": "108main1.jpg",
-    "user_image": "pfp1.jpg",
-    "name": "James Lee",
-    "uniqname": "jamesl"
+    "address": "910 Church St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 8,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1450,
+    "address": "825 E University Ave, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 7,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1700,
+    "address": "711 Division St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 6,
+    "score": 8.0,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1050,
+    "address": "603 Packard St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
   }
 ]
-2025-09-28 03:00:09,921 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:09] "GET /explore/ HTTP/1.1" 200 -
-2025-09-28 03:00:10,077 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:10] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
-2025-09-28 03:00:10,183 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:10] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 03:00:10,266 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:10] "[36mGET /uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:10,267 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:10] "[36mGET /uploads/105main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:10,268 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:10] "[36mGET /uploads/pfp1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:10,271 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:10] "[36mGET /uploads/108main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:12,193 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:12] "GET /users/boone/ HTTP/1.1" 200 -
-2025-09-28 03:00:12,330 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 03:00:12,456 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 03:00:12,533 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:12] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 03:00:12,536 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:12] "[36mGET /uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:12,539 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:12] "[36mGET /uploads/104main1.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:14,956 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:14] "[32mPOST /accounts/logout/ HTTP/1.1[0m" 302 -
-2025-09-28 03:00:15,267 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:15] "GET /accounts/login/ HTTP/1.1" 200 -
-2025-09-28 03:00:15,638 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 03:00:15,641 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:15] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 03:00:18,296 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:18] "GET / HTTP/1.1" 200 -
-2025-09-28 03:00:18,435 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 03:00:18,560 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:18] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
-2025-09-28 03:00:18,637 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:18] "[36mGET /static/images/housing.jpg HTTP/1.1[0m" 304 -
-2025-09-28 03:00:19,973 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:19] "GET /accounts/login/ HTTP/1.1" 200 -
-2025-09-28 03:00:20,287 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-09-28 03:00:20,335 [INFO] 127.0.0.1 - - [28/Sep/2025 03:00:20] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:44:54,246 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "POST /explore/dream-search HTTP/1.1" 200 -
+2025-09-28 09:44:54,433 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:44:54,471 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 09:44:54,479 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:44:54,489 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:44:54,491 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:44:54,492 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:44:54,493 [INFO] 127.0.0.1 - - [28/Sep/2025 09:44:54] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:16,256 [INFO] Dream place search by munchie: 'I want a cozy place'
+2025-09-28 09:45:16,257 [INFO] AI Recommendations: [
+  {
+    "housing_id": 10,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1400,
+    "address": "1200 Catherine St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 9,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1500,
+    "address": "910 Church St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 8,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1450,
+    "address": "825 E University Ave, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 7,
+    "score": 8.5,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1700,
+    "address": "711 Division St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  },
+  {
+    "housing_id": 6,
+    "score": 8.0,
+    "reason": "Based on 'I want a cozy place': Matches your budget and preferences",
+    "monthly_rent": 1050,
+    "address": "603 Packard St, Ann Arbor, MI",
+    "image_url": "/static/images/default-house.png"
+  }
+]
+2025-09-28 09:45:16,260 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:16] "POST /explore/dream-search HTTP/1.1" 200 -
+2025-09-28 09:45:16,346 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:16] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 09:45:16,347 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:16] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:16,354 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:16] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:16,354 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:16] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:16,355 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:16] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:16,360 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:16] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:21,204 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:21] "GET / HTTP/1.1" 200 -
+2025-09-28 09:45:21,275 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:21] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:21,276 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:21,278 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:21] "[36mGET /uploads/pfp2.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:21,279 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:21] "[36mGET /uploads/102main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:21,283 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:22,325 [INFO] Logged in user: munchie
+2025-09-28 09:45:22,326 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:45:22,326 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:22] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:45:22,369 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:22] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:22,369 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:22] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:22,374 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:22] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:22,376 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:22] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:22,407 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:22] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:22,432 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:22] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:26,258 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:26] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:45:26,262 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:26] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:38,653 [INFO] Logged in user: munchie
+2025-09-28 09:45:38,653 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:45:38,655 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:45:38,709 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:45:38,721 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 09:45:38,724 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:38,728 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:38,728 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:38,729 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:38,732 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:38] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:41,851 [INFO] Logged in user: munchie
+2025-09-28 09:45:41,852 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:45:41,853 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:45:41,906 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:45:41,936 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:41,948 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:41,953 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:41,953 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:41,954 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:41,954 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:41] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:49,284 [INFO] Logged in user: munchie
+2025-09-28 09:45:49,285 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:45:49,286 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:45:49,326 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:45:49,345 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:49,347 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 09:45:49,348 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:49,350 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:49,351 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:49,353 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:49] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:55,309 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:55] "GET / HTTP/1.1" 200 -
+2025-09-28 09:45:55,389 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:55] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:45:55,401 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:55] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:55,406 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:55] "[36mGET /uploads/pfp2.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:55,408 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:55] "[36mGET /uploads/102main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:55,408 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:55,412 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:57,056 [INFO] Logged in user: munchie
+2025-09-28 09:45:57,061 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:45:57,064 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:45:57,174 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:45:57,190 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:45:57,201 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:45:57,203 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:57,207 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:57,302 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:45:57,304 [INFO] 127.0.0.1 - - [28/Sep/2025 09:45:57] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:06,742 [INFO] Logged in user: munchie
+2025-09-28 09:46:06,748 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:46:06,757 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:46:06,904 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:46:06,937 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 09:46:06,938 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:06,938 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:46:06,946 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:06,948 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:06,952 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:06] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:10,861 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:10] "GET / HTTP/1.1" 200 -
+2025-09-28 09:46:10,904 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:46:10,904 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:10] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:46:10,906 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:10] "[36mGET /uploads/pfp2.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:10,906 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:10] "[36mGET /uploads/102main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:10,907 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:46:11,955 [INFO] Logged in user: munchie
+2025-09-28 09:46:11,955 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:46:11,957 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:11] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:46:11,998 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:11] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:46:11,999 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:11] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:46:12,002 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:12] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:12,061 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:12] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:12,063 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:12] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:12,064 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:12] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:15,918 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:15] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:46:15,930 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:15] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-28 09:46:53,459 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:53] "GET / HTTP/1.1" 200 -
+2025-09-28 09:46:53,591 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:46:53,592 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:53] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:46:53,599 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:53] "[36mGET /uploads/pfp2.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:53,600 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:53] "[36mGET /uploads/102main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:53,685 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 09:46:55,007 [INFO] Logged in user: munchie
+2025-09-28 09:46:55,008 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:46:55,012 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:55] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:46:55,093 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:55] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:46:55,098 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:55] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 09:46:55,101 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:55] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:55,102 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:55] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:55,103 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:55] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:55,200 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:55] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:57,567 [INFO] Logged in user: munchie
+2025-09-28 09:46:57,567 [INFO] Posts fetched: [
+  {
+    "housing_id": 4,
+    "contact_student_uniqname": "ohana",
+    "street_address": "420 Hill St",
+    "city": "Ann Arbor",
+    "zip_code": "48103",
+    "state": "MI",
+    "monthly_rent": 850,
+    "house_image": "103main1.jpg",
+    "user_image": "9887e06812ef434d291e4936417d125cd594b38a.jpg",
+    "name": "Owala Ohana",
+    "uniqname": "ohana"
+  },
+  {
+    "housing_id": 1,
+    "contact_student_uniqname": "jchen",
+    "street_address": "100 State St",
+    "city": "Ann Arbor",
+    "zip_code": "48100",
+    "state": "MI",
+    "monthly_rent": 900,
+    "house_image": "100main1.jpg",
+    "user_image": "2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg",
+    "name": "Junyi Chen",
+    "uniqname": "jchen"
+  }
+]
+2025-09-28 09:46:57,569 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:57] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 09:46:57,632 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:57] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 09:46:57,635 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:57] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 09:46:57,638 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:57] "[36mGET /uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:57,639 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:57] "[36mGET /uploads/103main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:57,642 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:57] "[36mGET /uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg HTTP/1.1[0m" 304 -
+2025-09-28 09:46:57,642 [INFO] 127.0.0.1 - - [28/Sep/2025 09:46:57] "[36mGET /uploads/100main1.jpg HTTP/1.1[0m" 304 -

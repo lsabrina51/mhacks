@@ -56,18 +56,10 @@ def show_edit():
     logname = flask.session.get('username')
     connection = bigHouses.model.get_db()
 
-    cur = connection.execute(
-        """
-        SELECT uniqname, img_url, name
-        FROM users
-        WHERE uniqname = ?
-        """,
-        (logname, )
-    )
-
-    user = cur.fetchone()
+    user = connection.execute(
+            "SELECT * FROM users WHERE uniqname = ?", (logname,)
+    ).fetchone()
     context = {"logname": logname, "user": user}
-
     return flask.render_template("account_edit.html", **context)
 
 
@@ -299,7 +291,6 @@ def handle_edit_account():
 
     # Pull all fields from form (defaults to None if missing)
     name = form.get("name")
-    email = form.get("email")
     phone_number = form.get("phone_number")
     gender = form.get("gender")
     budget = form.get("budget")
