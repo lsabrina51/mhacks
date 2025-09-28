@@ -4,6 +4,7 @@ import uuid
 import pathlib
 import flask
 import bigHouses
+import os
 
 
 # QUESTION: idk what this is checking if we check for logged in in show_index?
@@ -57,9 +58,9 @@ def show_edit():
 
     cur = connection.execute(
         """
-        SELECT username, filename, fullname, email
+        SELECT uniqname, img_url, name
         FROM users
-        WHERE username = ?
+        WHERE uniqname = ?
         """,
         (logname, )
     )
@@ -135,7 +136,7 @@ def handle_login():
         """
         SELECT password
         FROM users
-        WHERE username = ?
+        WHERE uniqname = ?
         """,
         (username, )
     ).fetchone()
@@ -147,17 +148,17 @@ def handle_login():
     user_pass = user_pass['password']
 
     # split user_pass based off $ to get salt
-    pass_parts = user_pass.split('$')
+    # pass_parts = user_pass.split('$')
 
-    algorithm = 'sha512'
-    salt = pass_parts[1]
-    hash_obj = hashlib.new(algorithm)
-    password_salted = salt + password
-    hash_obj.update(password_salted.encode('utf-8'))
-    password_hash = hash_obj.hexdigest()
-    password_db_string = "$".join([algorithm, salt, password_hash])
+    # algorithm = 'sha512'
+    # salt = pass_parts[1]
+    # hash_obj = hashlib.new(algorithm)
+    # password_salted = salt + password
+    # hash_obj.update(password_salted.encode('utf-8'))
+    # password_hash = hash_obj.hexdigest()
+    # password_db_string = "$".join([algorithm, salt, password_hash])
 
-    if password_db_string != user_pass:
+    if password != user_pass:
         flask.abort(403)
 
     # Set a session cookie.
@@ -196,7 +197,7 @@ def handle_create():
         """
         SELECT 1
         FROM users
-        WHERE username = ?
+        WHERE uniqname = ?
         """,
         (username, )
     ).fetchone()
@@ -225,7 +226,7 @@ def handle_create():
 
     connection.execute(
         """
-        INSERT INTO users(filename, username, password, fullname, email)
+        INSERT INTO users(filename, uniqname, password, fullname, email)
         VALUES(?, ?, ?, ?, ?)
         """,
         (uuid_basename, username, password_db_string, fullname, email)
@@ -259,7 +260,7 @@ def handle_delete():
             """
             SELECT filename
             FROM users
-            WHERE username = ?
+            WHERE uniqname = ?
             """,
             (username, )
         )
@@ -272,7 +273,7 @@ def handle_delete():
         connection.execute(
             """
             DELETE FROM users
-            WHERE username = ?
+            WHERE uniqname = ?
             """,
             (username, )
         )
@@ -311,7 +312,7 @@ def handle_edit_account():
                 """
                 SELECT filename
                 FROM users
-                WHERE username = ?
+                WHERE uniqname = ?
                 """,
                 (username, )
             )
@@ -343,7 +344,7 @@ def handle_edit_account():
                 """
                 UPDATE users
                 SET fullname = ?, email = ?, filename = ?
-                WHERE username = ?
+                WHERE uniqname = ?
                 """,
                 (fullname, email, uuid_basename, username)
             )
@@ -358,7 +359,7 @@ def handle_edit_account():
                 """
                 UPDATE users
                 SET fullname = ?, email = ?
-                WHERE username = ?
+                WHERE uniqname = ?
                 """,
                 (fullname, email, username)
             )
@@ -394,7 +395,7 @@ def handle_update_password():
             """
             SELECT password
             FROM users
-            WHERE username = ?
+            WHERE uniqname = ?
             """,
             (username, )
         )
@@ -427,7 +428,7 @@ def handle_update_password():
             """
             UPDATE users
             SET password = ?
-            WHERE username = ?
+            WHERE uniqname = ?
             """,
             (storing_password, username)
         )

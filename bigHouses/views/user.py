@@ -19,69 +19,42 @@ def show_user(username):
 
     logname = flask.session.get('username')
     cur_user = connection.execute(
-        "SELECT username, fullname "
+        "SELECT * "
         "FROM users "
-        "WHERE username = ? ",
+        "WHERE uniqname = ? ",
         (username, )
     )
     # since only 1 result:
     user = cur_user.fetchone()
     # Error: User DNE
     if user is None:
-        flask.abort(404)
+        flask.abort(404)  
 
-    # RELATIONSHIP w logname -> if result exists: true
-    cur_rel = connection.execute(
-        "SELECT username1, username2 "
-        "FROM following "
-        "WHERE username1 = ? AND username2 = ? ",
-        (logname, username)
-    )
-    rel = cur_rel.fetchall()
-    if rel:
-        user['logname_follows_user'] = True
-    else:
-        user['logname_follows_user'] = False
+    student = dict(user)
+    #student["img_url"] = "/uploads/" + student["img_url"]
 
-    # NUM_POSTS: count # of rows from posts
-    # where post.owner = username
-    cur_posts = connection.execute(
-        "SELECT COUNT(*) AS num_posts "
+    cur_post = connection.execute(
+        "SELECT street_address, monthly_rent, house_type, housing_id "
         "FROM posts "
-        "WHERE owner = ? ",
+        "WHERE contact_student_uniqname = ? ",
         (username, )
-    )
-    num_posts = cur_posts.fetchall()
-    user['num_posts'] = num_posts[0]['num_posts']
+    ).fetchall()
 
-    # FOLLOWER/FOLLOWING: iterate grab # of rows from follow table
-    cur_followers = connection.execute(
-        "SELECT COUNT(*) AS followers "
-        "FROM following "
-        "WHERE username2 = ? ",
-        (username, )
-    )
-    followers = cur_followers.fetchall()
-    user['followers'] = followers[0]['followers']
+    post_list = []
+    for post in cur_post:
+        images = connection.execute(
+            "SELECT img_url FROM images WHERE housing_id = ? ORDER BY img_order ASC",
+            (post["housing_id"],)
+        ).fetchall()
 
-    cur_following = connection.execute(
-        "SELECT COUNT(*) AS following "
-        "FROM following "
-        "WHERE username1 = ? ",
-        (username, )
-    )
-    following = cur_following.fetchall()
-    user['following'] = following[0]['following']
-
-    # POSTS: get image links
-    cur_posts = connection.execute(
-        "SELECT postid, filename "
-        "FROM posts "
-        "WHERE owner = ? ",
-        (username, )
-    )
-    user['posts'] = cur_posts.fetchall()
+        post_dict = dict(post)  
+        post_dict["images"] = ["/uploads/" + img["img_url"] for img in images]
+        post_list.append(post_dict)
 
     # Ship n send as context
-    context = {"logname": logname, "user": user}
+    context = {
+        "logname": logname,
+        "student": user,
+        "posts": post_list
+    }
     return flask.render_template("user.html", **context)

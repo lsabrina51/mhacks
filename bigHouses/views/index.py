@@ -9,6 +9,7 @@ URLs include:
 import arrow
 import flask
 import bigHouses
+from bigHouses.views.user import show_user 
 
 LOGGER = flask.logging.create_logger(bigHouses.app)
 
@@ -20,83 +21,119 @@ def show_index():
         return flask.redirect(flask.url_for('show_login'))
 
     # Connect to database
-    connection = bigHouses.model.get_db()
+    # connection = bigHouses.model.get_db()
 
     logname = flask.session.get('username')
+    return show_user(logname) 
 
-    cur = connection.execute(
-        "SELECT * "
-        "FROM posts "
-        "INNER JOIN following "
-        "ON (posts.owner = ? OR (following.username1 = ? AND"
-        " posts.owner = following.username2)) "
-        "GROUP BY posts.postid "
-        "ORDER BY posts.postid DESC ",
-        (logname, logname)
+    # Connect to database
+    connection = bigHouses.model.get_db()
+
+    # 
+    cur_user = connection.execute(
+        "SELECT name, img_url "
+        "FROM users "
+        "WHERE uniqname = ? ",
+        (logname, )
     )
+    user = cur.fetchone()
 
+    # fetch posts based on user preference 
+    posts = connection.execute(
+        "SELECT housing_id, contact_student_uniqname, street_address, city, zip_code, state, monthly_rent "
+        "FROM posts "
+        "INNER JOIN users "
+        "ON users.uniqname = ? "
+        "AND users.move_in_date >= posts.availability_start "
+        "AND users.move_out_date <= posts.availability_end "
+        "AND (users.house_type_pref IS NULL OR users.house_type_pref = posts.house_type) "
+        "AND (users.room_type_pref IS NULL OR users.room_type_pref = posts.room_type) "
+        "AND (users.budget IS NULL OR posts.monthly_rent <= users.budget) "
+        "AND ((users.car = 1 AND posts.parking = 1) OR users.car = 0) "
+        "AND (users.preferred_location IS NULL OR posts.city = users.preferred_location) "
+        "ORDER BY posts.distance_from_campus DESC ",
+        (logname,)
+    )
     posts = cur.fetchall()
 
-    postcontext = []
-    for p in posts:
-        p['created'] = arrow.get(p['created'], 'YYYY-MM-DD HH:mm:ss')
-        p['created'] = p['created'].humanize()
+    # fetch all images for each post 
 
-        # Get comments
-        comments = connection.execute(
-            "SELECT owner, text "
-            "FROM comments "
-            "WHERE postid = ? "
-            "ORDER BY commentid ASC",
-            (p['postid'], )
-        )
-        comments = comments.fetchall()
 
-        p['comments'] = comments
 
-        # get total # of likes for the post:
-        likes = connection.execute(
-            "SELECT COUNT(*) AS total_likes "
-            "FROM likes "
-            "WHERE postid = ? ",
-            (p['postid'], )
-        )
+    # cur = connection.execute(
+    #     "SELECT * "
+    #     "FROM posts "
+    #     "INNER JOIN following "
+    #     "ON (posts.owner = ? OR (following.username1 = ? AND"
+    #     " posts.owner = following.username2)) "
+    #     "GROUP BY posts.postid "
+    #     "ORDER BY posts.postid DESC ",
+    #     (logname, logname)
+    # )
 
-        likes = likes.fetchall()
+    # posts = cur.fetchall()
 
-        if likes is not None:
-            p['likes'] = likes[0]['total_likes']
+    # postcontext = []
+    # for p in posts:
+    #     p['created'] = arrow.get(p['created'], 'YYYY-MM-DD HH:mm:ss')
+    #     p['created'] = p['created'].humanize()
 
-            # checking whether the user has already liked this post
-            liked = connection.execute(
-                """
-                SELECT owner
-                FROM likes
-                WHERE postid = ?
-                """,
-                (p['postid'],)
-            )
+    #     # Get comments
+    #     comments = connection.execute(
+    #         "SELECT owner, text "
+    #         "FROM comments "
+    #         "WHERE postid = ? "
+    #         "ORDER BY commentid ASC",
+    #         (p['postid'], )
+    #     )
+    #     comments = comments.fetchall()
 
-            liked = liked.fetchone()
-            if liked is not None:
-                p['like_owner'] = liked['owner']
+    #     p['comments'] = comments
 
-        user = connection.execute(
-            "SELECT filename "
-            "FROM users "
-            "WHERE username = ? ",
-            (p['owner'], )
-        )
-        user = user.fetchall()
+    #     # get total # of likes for the post:
+    #     likes = connection.execute(
+    #         "SELECT COUNT(*) AS total_likes "
+    #         "FROM likes "
+    #         "WHERE postid = ? ",
+    #         (p['postid'], )
+    #     )
 
-        p['owner_pic'] = user[0]['filename']
+    #     likes = likes.fetchall()
 
-        postcontext.append(p)
+    #     if likes is not None:
+    #         p['likes'] = likes[0]['total_likes']
 
-    # Add database info to context
-    context = {"logname": logname, "posts": postcontext}
+    #         # checking whether the user has already liked this post
+    #         liked = connection.execute(
+    #             """
+    #             SELECT owner
+    #             FROM likes
+    #             WHERE postid = ?
+    #             """,
+    #             (p['postid'],)
+    #         )
 
-    return flask.render_template("index.html", **context)
+    #         liked = liked.fetchone()
+    #         if liked is not None:
+    #             p['like_owner'] = liked['owner']
+
+    #     user = connection.execute(
+    #         "SELECT filename "
+    #         "FROM users "
+    #         "WHERE username = ? ",
+    #         (p['owner'], )
+    #     )
+    #     user = user.fetchall()
+
+    #     p['owner_pic'] = user[0]['filename']
+
+    #     postcontext.append(p)
+
+    # # Add database info to context
+    # context = {"logname": logname, "posts": postcontext}
+
+    # return flask.render_template("index.html", **context)
+
 
 
 @bigHouses.app.route('/uploads/<filename>')

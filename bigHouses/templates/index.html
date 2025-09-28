@@ -8,15 +8,15 @@
     </head>
     <body>
         <header class="header">
-            <div class = "header-left">
-                <a href="/"><img src="/static/images/logo.png" alt="Logo"> </a>
-                <a href="/"><img src= "{{ url_for('static', filename = 'images/insta.png' )}}" alt="bigHouses"> <h2>482</h2></a>
+            <div class="header-left">
+                <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
+                <h2>Big Houses</h2>
             </div>
     
             <!-- Include a link to /explore/ and /users/{logname}/. -->
-            <div class = "header-right">
-                <a href = "/explore/"> <h3>explore</h3></a>
-                <a href = "/users/{{ logname }}/"> <h3> {{ logname }} </h3></a>
+            <div class="header-right">
+                <a href="/explore/" class="nav-link">explore</a>
+                <a href="/users/{{ logname }}/" class="nav-link">{{ logname }}</a>
             </div>
         </header>
 

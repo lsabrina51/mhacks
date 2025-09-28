@@ -1,14 +1,16 @@
-CREATE TABLE Students (
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE users (
     uniqname          VARCHAR(10) PRIMARY KEY,
-    gender            VARCHAR(10),
+    gender            VARCHAR(10), -- M/F/Other
     name              VARCHAR(100),
     phone_number      VARCHAR(20),
     budget            DECIMAL(10,2),
-    preferred_location VARCHAR(100),
+    preferred_location VARCHAR(100), -- not used!
     house_type_pref   VARCHAR(50),   -- Apartment, Dorm, House, Townhouse
     room_type_pref    VARCHAR(50),   -- Studio, 1BR, Shared, etc.
-    move_in_date      DATE,
-    move_out_date     DATE,
+    move_in_date      DATE, -- Month/Year
+    move_out_date     DATE, -- Month/Year
     grad_month        INT,
     grad_year         INT,
     password          VARCHAR(20),
@@ -16,7 +18,7 @@ CREATE TABLE Students (
     car               INT
 );
 
-CREATE TABLE Housing (
+CREATE TABLE posts (
     housing_id      INT PRIMARY KEY,
     contact_student_uniqname VARCHAR(10),
     street_address  VARCHAR(255),
@@ -43,13 +45,15 @@ CREATE TABLE Housing (
     air_conditioning BOOLEAN,
     heating BOOLEAN, 
     utilities_included BOOLEAN,
-    FOREIGN KEY (contact_student_uniqname) REFERENCES Students(uniqname)
+    distance_from_campus FLOAT, 
+    FOREIGN KEY (contact_student_uniqname) REFERENCES users(uniqname)
 );
 
-CREATE TABLE HousingImages (
-    image_id   INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE images (
+    image_id INTEGER PRIMARY KEY,
     housing_id INT,
     img_url    VARCHAR(255),
     img_order  INT, 
-    FOREIGN KEY (housing_id) REFERENCES Housing(housing_id)
+    FOREIGN KEY (housing_id) REFERENCES posts(housing_id)
 );
+

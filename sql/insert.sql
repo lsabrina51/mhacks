@@ -1,0 +1,183 @@
+PRAGMA foreign_keys = ON;
+
+-- ========================
+-- USERS
+-- ========================
+INSERT INTO users (
+    uniqname, gender, name, phone_number, budget, preferred_location,
+    house_type_pref, room_type_pref, move_in_date, move_out_date, grad_month,
+    grad_year, password, img_url, car
+) VALUES
+('kchen', 'Male', 'Ken Chen', '734-555-1200', 1522.94,
+ 'Ann Arbor', 'Townhouse', '2BR',
+ '2025-05-19', '2026-05-12', 5, 2028,
+ 'pass1', '122a7d27ca1d7420a1072f695d9290fad4501a41.jpg', 0),
+
+('jchen', 'Male', 'Junyi Chen', '734-555-1201', 1718.74,
+ 'Ann Arbor', 'House', '1BR',
+ '2025-05-14', '2026-06-15', 4, 2026,
+ 'pass2', '2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg', 1),
+
+('emart', 'Female', 'Eugenia Martinez', '734-555-1202', 922.35,
+ 'Ann Arbor', 'Dorm', 'Shared',
+ '2025-05-07', '2026-09-28', 5, 2028,
+ 'pass3', '505083b8b56c97429a728b68f31b0b2a089e5113.jpg', 0),
+
+('mmouse', 'Female', 'Minnie Mouse', '734-555-1203', 1585.78,
+ 'Ann Arbor', 'Townhouse', '2BR',
+ '2025-07-21', '2026-06-26', 5, 2027,
+ 'pass4', '5ecde7677b83304132cb2871516ea50032ff7a4f.jpg', 1),
+
+('jmccart', 'Male', 'JJ McCarthy', '734-555-1204', 601.22,
+ 'Ann Arbor', 'House', '2BR',
+ '2025-08-13', '2026-05-18', 4, 2027,
+ 'pass5', '73ab33bd357c3fd42292487b825880958c595655.jpg', 0),
+
+('ohana', 'Female', 'Owala Ohana', '734-555-1205', 582.11,
+ 'Ann Arbor', 'Townhouse', 'Shared',
+ '2025-09-16', '2026-08-21', 4, 2027,
+ 'pass6', '9887e06812ef434d291e4936417d125cd594b38a.jpg', 0),
+
+('bchao', 'Female', 'Becky Chao', '734-555-1206', 718.4,
+ 'Ann Arbor', 'Apartment', 'Shared',
+ '2025-06-11', '2026-08-22', 12, 2027,
+ 'pass7', 'ad7790405c539894d25ab8dcf0b79eed3341e109.jpg', 1),
+
+('boone', 'Male', 'Benson Boone', '734-555-1207', 1507.11,
+ 'Ann Arbor', 'House', 'Shared',
+ '2025-07-08', '2026-08-13', 5, 2028,
+ 'pass8', 'e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg', 1),
+
+('jcharles', 'Other', 'James Charles', '734-555-1208', 873.26,
+ 'Ann Arbor', 'Townhouse', '1BR',
+ '2025-08-06', '2026-09-10', 5, 2027,
+ 'pass9', 'pfp1.jpg', 1),
+
+('munchie', 'Male', 'Munchie Chen', '734-555-1209', 1729.46,
+ 'Ann Arbor', 'Dorm', 'Shared',
+ '2025-05-11', '2026-05-25', 12, 2026,
+ 'pass10', 'pfp2.jpg', 0),
+
+-- FIXED: Added missing user for housing_id=9
+('jamesl', 'Male', 'James Lee', '734-555-1210', 1650.00,
+ 'Ann Arbor', 'Apartment', '2BR',
+ '2025-06-15', '2026-05-30', 5, 2027,
+ 'pass11', 'pfp3.jpg', 1);
+
+-- ========================
+-- POSTS
+-- ========================
+INSERT INTO posts (
+    housing_id, contact_student_uniqname, street_address, city, state, zip_code,
+    latitude, longitude, monthly_rent, house_type, room_type, gender,
+    availability_start, availability_end, wifi_included, laundry, parking,
+    pets_allowed, furnished, weed_friendly, smoking_friendly, drinking_friendly,
+    air_conditioning, heating, utilities_included, distance_from_campus
+) VALUES
+(1, 'jchen', '100 State St', 'Ann Arbor', 'MI', '48100',
+ 42.267892, -83.745941, 838.52, 'Dorm', '2BR', 'All Boys',
+ '2025-09-21', '2026-05-02', 1, 1, 0, 0, 0, 0, 0, 0,
+ 1, 0, 1, 0.88),
+
+(2, 'bchao', '201 Liberty St', 'Ann Arbor', 'MI', '48101',
+ 42.268924, -83.738767, 1708.66, 'Townhouse', '1BR', 'All Girls',
+ '2025-05-21', '2026-09-23', 0, 0, 1, 1, 1, 1, 0, 1,
+ 0, 0, 0, 1.54),
+
+(3, 'munchie', '350 Packard St', 'Ann Arbor', 'MI', '48102',
+ 42.263635, -83.742038, 1570.64, 'Dorm', 'Studio', 'All Boys',
+ '2025-09-27', '2026-06-26', 1, 0, 0, 1, 1, 0, 0, 0,
+ 0, 1, 1, 1.04),
+
+(4, 'ohana', '420 Hill St', 'Ann Arbor', 'MI', '48103',
+ 42.278415, -83.740689, 822.11, 'Dorm', 'Shared', 'All Girls',
+ '2025-07-04', '2026-05-17', 1, 0, 0, 1, 1, 0, 1, 1,
+ 1, 0, 1, 2.07),
+
+(5, 'boone', '512 Oakland Ave', 'Ann Arbor', 'MI', '48104',
+ 42.260339, -83.748578, 1392.64, 'Dorm', '1BR', 'All Boys',
+ '2025-06-08', '2026-05-21', 1, 0, 1, 1, 0, 0, 1, 1,
+ 0, 0, 1, 2.83),
+
+(6, 'kchen', '603 Packard St', 'Ann Arbor', 'MI', '48105',
+ 42.271357, -83.735235, 1051.48, 'House', 'Studio', 'All Boys',
+ '2025-05-16', '2026-09-12', 1, 0, 1, 0, 1, 0, 1, 1,
+ 0, 0, 1, 2.80),
+
+(7, 'jmccart', '711 Division St', 'Ann Arbor', 'MI', '48106',
+ 42.273743, -83.745700, 1702.67, 'Apartment', '1BR', 'All Boys',
+ '2025-05-28', '2026-08-15', 0, 0, 1, 1, 0, 0, 0, 1,
+ 1, 1, 0, 0.75),
+
+(8, 'emart', '825 E University Ave', 'Ann Arbor', 'MI', '48107',
+ 42.277553, -83.738678, 1447.40, 'Townhouse', '1BR', 'All Girls',
+ '2025-05-25', '2026-05-16', 0, 0, 0, 1, 1, 1, 1, 0,
+ 0, 0, 0, 1.18),
+
+(9, 'jamesl', '910 Church St', 'Ann Arbor', 'MI', '48108',
+ 42.279100, -83.739400, 1650.00, 'Apartment', '2BR', 'Mixed',
+ '2025-06-15', '2026-05-30', 1, 1, 1, 0, 1, 0, 0, 1,
+ 1, 1, 1, 0.65),
+
+(10, 'jcharles', '1200 Catherine St', 'Ann Arbor', 'MI', '48109',
+ 42.278504, -83.735147, 1390.66, 'Townhouse', 'Studio', 'Mixed',
+ '2025-09-24', '2026-05-04', 0, 0, 0, 1, 0, 1, 1, 0,
+ 0, 0, 1, 0.89);
+
+-- ========================
+-- IMAGES
+-- ========================
+-- Housing 1 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(1, '100main1.jpg', 1),
+(1, '100main2.jpg', 2),
+(1, '100main3.png', 3),
+(1, '100main4.jpg', 4),
+(1, '100main5.jpg', 5);
+
+-- Housing 2 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(2, '101main1.jpg', 1),
+(2, '101main2.jpg', 2);
+
+-- Housing 3 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(3, '102main1.jpg', 1),
+(3, '102main2.jpg', 2),
+(3, '102main3.jpg', 3);
+
+-- Housing 4 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(4, '103main1.jpg', 1),
+(4, '103main2.jpg', 2),
+(4, '103main3.jpg', 3),
+(4, '103main4.jpg', 4),
+(4, '103main5.jpg', 5);
+
+-- Housing 5 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(5, '104main1.jpg', 1),
+(5, '104main2.jpg', 2),
+(5, '104main3.png', 3),
+(5, '104main4.png', 4),
+(5, '104main5.png', 5);
+
+-- Housing 6 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(6, '105main1.jpg', 1),
+(6, '105main2.jpg', 2),
+(6, '105main3.jpg', 3);
+
+-- Housing 7 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(7, '106main1.jpg', 1);
+
+-- Housing 8 images
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(8, '107main1.jpg', 1);
+
+-- Housing 10 images (fixed last file to be consistent with housing_id=10)
+INSERT INTO images (housing_id, img_url, img_order) VALUES
+(10, '109main1.jpg', 1),
+(10, '109main2.jpg', 2),
+(10, '109main3.jpg', 3);

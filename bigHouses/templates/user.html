@@ -2,76 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Insta485</title>
+    <title>Big Houses</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body> 
-    <header>
-        <div class="logo-wrapper">
-            <div class="left">
-                <a href="/">
-                    <img src="/static/images/insta485_logo.png" alt="Site Logo" class="logo">
-                </a>
-                <div class="divider"></div>
-                <h1 id="site-title">
-                    <span class="first">Insta</span><span class="second">485</span>
-                </h1>
-            </div>
+    <header class="header">
+        <div class="header-left">
+            <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
+            <h2>Big Houses</h2>
+        </div>
 
-            <div class="right">
-                <a href="/explore/" class="right-headers">explore</a>
-                <div class="divider"></div>
-                <a href="/users/{{ logname }}/" class="right-headers">{{ logname }}</a>
-            </div>
+        <div class="header-right">
+            <a href="/explore/" class="nav-link">explore</a>
+            <a href="/users/{{ logname }}/" class="nav-link active">{{ logname }}</a>
         </div>
     </header>
-    <h2>{{user}}</h2>
-    <div>
-        {% if logname == user %}
-            <a href="/accounts/edit/">Edit profile</a>
-            <form action="/accounts/logout/?target=/accounts/login/" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <input type="submit" name="logout" value="Logout"/>
-            </form>
-        {% elif logname_follows_username %}
-            following
-            <form action="/following/?target=/users/{{ user }}/" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <input type="submit" name="unfollow" value="unfollow"/>
-                <input type="hidden" name="username" value="{{user}}"/>
-                <input type="hidden" name="operation" value="unfollow"/>
-            </form>
-        {% else %}
-            not following
-            <form action="/following/?target=/users/{{user}}/" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <input type="submit" name="follow" value="follow"/>
-                <input type="hidden" name="username" value="{{user}}"/>
-                <input type="hidden" name="operation" value="follow"/>
-            </form>
-        {% endif %}
-    </div>
-    <h3>{{total_posts}} post{{'s' if total_posts != 1 else ''}}
-        <a href="/users/{{user}}/followers/"><strong>{{followers}} follower{{'s' if followers != 1 else ''}}</strong></a> 
-        <a href="/users/{{user}}/following/"><strong>{{following}} following</strong></a>
-    </h3>
-    <h3>{{fullname}}</h3>
-    {% if logname == user %}
-        <form action="/posts/?target=/users/{{ user }}/" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="file" name="file" accept="image/*" required/>
-            <input type="submit" name="create_post" value="upload new post"/>
-            <input type="hidden" name="operation" value="create"/>
-        </form>
-    {% endif %}
-    {% if total_posts != 0 %}
-        {% for post in posts %}
-            <a href="/posts/{{post.postid}}/">
-                <img src="{{post.img_url}}" alt="Post Pic" class="profile-posts">
-            </a>
-        {% endfor %}
-    {% else %}
-        <h3>No posts yet.</h3>
-    {% endif %}
+    <main class="profile-container">
+        <!-- Student Info -->
+        <section class="student-info">
+            <div class="profile-header">
+                {% if logname == student.uniqname %}  
+                    <a href="/accounts/edit/" class="edit-btn">Edit</a>
+                {% endif %}
+                <img src="{{ url_for('uploaded_file', filename=student.img_url) }}" alt="Profile Pic" class="profile-pic">
+                <div class="profile-details">
+                    <h2>{{ student.name }}</h2>
+                    <p><strong>Gender:</strong> {{ student.gender }}</p>
+                    <p><strong>Budget:</strong> ${{ student.budget }} / month</p>
+                    <p><strong>House Type Preference:</strong> {{ student.house_type_pref }}</p>
+                    <p><strong>Room Type Preference:</strong> {{ student.room_type_pref }}</p>
+                    <p><strong>Move-in:</strong> {{ student.move_in_date }} | <strong>Move-out:</strong> {{ student.move_out_date }}</p>
+                    <p><strong>Has Car:</strong> {% if student.car %}Yes{% else %}No{% endif %}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Housing Listings -->
+        <section class="housing-grid">
+            <h3>{{ posts|length }} Listing{{ 's' if posts|length != 1 else '' }}</h3>
+            {% if posts %}
+                <div class="grid">
+                    {% for post in posts %}
+                        <a href="{{ post.housing_id }}" class="housing-card">
+                            <img src="{{ post.images[0] }}" alt="House Image">
+                            <div class="card-body">
+                                <h4>${{ post.monthly_rent }}/mo</h4>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h4>No listings yet.</h4>
+            {% endif %}
+        </section>
+    </main>
 </body>
 </html>

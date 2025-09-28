@@ -230,9 +230,30 @@
     margin-top: 1rem;
 }
 
-.login-btn:hover {
+.follow-btn:hover,
+.view-profile-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 20px rgba(14, 45, 154, 0.3);
+}
+
+.view-profile-btn {
+    background: linear-gradient(135deg, #0E2D9A 0%, #93C1DE 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.username {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 .login-btn:active {
@@ -259,10 +280,221 @@
     text-decoration: underline;
 }
 
+/* Delete Account Specific Styles */
+.warning-text {
+    color: #dc3545;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.delete-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.delete-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+}
+
+.delete-btn:active {
+    transform: translateY(0);
+}
+
+/* Edit Account Specific Styles */
+.current-profile-pic {
+    margin: 1rem 0;
+}
+
+.profile-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e0e0e0;
+}
+
+.form-help {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.account-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.action-link {
+    color: #0E2D9A;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.action-link:hover {
+    background-color: #f0f0f0;
+}
+
+.action-link.danger {
+    color: #dc3545;
+}
+
+.action-link.danger:hover {
+    background-color: #fdf2f2;
+}
+
+/* File Input Styling */
+.form-group input[type="file"] {
+    padding: 0.5rem;
+    border: 2px dashed #e0e0e0;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: #0E2D9A;
+    background-color: #f0f8ff;
+}
+
+.form-group input[type="file"]:focus {
+    border-color: #0E2D9A;
+    border-style: solid;
+    background-color: #f0f8ff;
+}
+
 /* General body styles */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
+}
+
+/* General Layout */
+.profile-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Profile Section */
+.student-info {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #4CAF50; /* green accent */
+}
+
+.profile-details h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.profile-details p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Housing Listings Section */
+.housing-grid {
+    margin-top: 2rem;
+}
+
+.housing-grid h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+/* Housing Card */
+.housing-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.housing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.housing-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 0.8rem 1rem;
+}
+
+.card-body h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4CAF50; /* green highlight for rent */
+}
+
+.edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: #007BFF;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s ease-in-out;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
 }

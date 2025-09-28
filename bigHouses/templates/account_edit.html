@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- HEAD -->
 <head>
+    <meta charset="UTF-8">
     <title>Big Houses</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
-<!-- CONTENT -->
 <body>
-    <!-- Link to / -->
+    <!-- Header -->
     <header class="header">
-        <div class = "header-left">
-            <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
-            <a href="/"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="bigHouses"> </a> <h2>Big Houses</h2>
+        <div class="header-left">
+            <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></a>
+            <h2>Big Houses</h2>
         </div>
-
-        <!-- Include a link to /explore/ and /users/{logname}/. -->
-        <div class = "header-right">
-            <a href = "/explore/"> <h3>explore</h3></a>
-            <a href = "/users/{{ logname }}/"> <h3> {{ logname }} </h3></a>
+        <div class="header-right">
+            <a href="/explore/" class="nav-link">explore</a>
+            <a href="/users/{{ logname }}/" class="nav-link">{{ logname }}</a>
         </div>
     </header>
 
-    <a href="/users/{{ logname }}/"><h4>{{logname}}</h4></a>
-    <img src = "/uploads/{{user.filename}}" alt ="profile">
+    <!-- Main Content -->
+    <main class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Edit Profile</h1>
+                <p>Update your account information, {{ logname }}</p>
+                {% if user.img_url %}
+                <div class="current-profile-pic">
+                    <img src="{{ user.img_url }}" alt="Current profile picture" class="profile-preview">
+                </div>
+                {% endif %}
+            </div>
 
-    <form action="{{ url_for('accounts')}}?target=/accounts/edit/" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*"/>
-        <input type="text" name="fullname" value="{{user.fullname}}" required/>
-        <input type="text" name="email" value="{{user.email}}" required/>
-        <input type="submit" name="update" value="submit"/>
-        <input type="hidden" name="operation" value="edit_account"/>
-    </form>
+            <!-- Edit Form -->
+            <form class="login-form" action="{{ url_for('accounts') }}?target=/accounts/edit/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-    <a href="/accounts/password/">Change password</a>
-    <a href="/accounts/delete/">Delete account</a>
+                <div class="form-group">
+                    <label for="file">Profile Picture</label>
+                    <input type="file" id="file" name="file" accept="image/*">
+                    <small class="form-help">Leave empty to keep current picture</small>
+                </div>
 
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" value="{{ user.fullname }}" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ user.email }}" placeholder="Enter your email" required>
+                </div>
+
+                <button type="submit" name="update" value="submit" class="login-btn">Update Profile</button>
+                <input type="hidden" name="operation" value="edit_account">
+            </form>
+
+            <!-- Footer Actions -->
+            <div class="login-footer">
+                <div class="account-actions">
+                    <a href="/accounts/password/" class="action-link">Change password</a>
+                    <a href="/accounts/delete/" class="action-link danger">Delete account</a>
+                </div>
+                <p><a href="/users/{{ logname }}/" class="signup-link">Back to profile</a></p>
+            </div>
+        </div>
+    </main>
 </body>
+</html>
