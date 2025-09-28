@@ -52,7 +52,6 @@ def show_explore():
         "AND (users.room_type_pref IS NULL OR users.room_type_pref = posts.room_type) "
         "AND (users.budget IS NULL OR posts.monthly_rent <= users.budget) "
         "AND ((users.car = 1 AND posts.parking = 1) OR users.car = 0) "
-        "AND (users.preferred_location IS NULL OR posts.city = users.preferred_location) "
         "ORDER BY posts.distance_from_campus DESC ",
         (logname,)
     ).fetchall()

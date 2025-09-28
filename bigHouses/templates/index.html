@@ -1,18 +1,38 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<head>
     <title>Big Houses</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  </head>
-  <body>
-    <div class="welcome-container">
-        <div class="welcome-header">
-            <h1>Big Houses</h1>
-            <p>Find your perfect Wolverine den! One platform, every semester, every need.</p>
-            <a href="{{ url_for('show_login') }}" class="start-btn">Get Started</a>
+</head>
+
+<!-- CONTENT -->
+<body>
+    <!-- Link to / -->
+    <header class="header">
+        <div class="header-left">
+            <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
+            <h2>Big Houses</h2>
         </div>
-    </div>
-  </body>
-</html>
+
+        <!-- Include a link to /explore/ and /users/{logname}/. -->
+        <div class="header-right">
+            <a href="/accounts/login/" class="nav-link active">Log In</a>
+        </div>
+    </header>
+
+    <main class="welcome-container">
+      <div class="welcome-text">
+          <h1>Big Houses</h1>
+          <p>Find your perfect Wolverine den!<br>One platform, every semester, every need.</p>
+          <div class="start-container">
+            <a href="{{ url_for('show_login') }}" class="start-btn active">Get Started</a>
+          </div>
+      </div>
+      <div class="welcome-image">
+        <img src="{{ url_for('static', filename='images/housing.jpg') }}">
+      </div>
+    </main>
+
+</body>

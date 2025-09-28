@@ -6,7 +6,9 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/explore.css') }}">
     </head>
 
-    <header class="header">
+    
+    <body>
+        <header class="header">
         <div class="header-left">
             <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
             <h2>Big Houses</h2>
@@ -20,11 +22,10 @@
             </form>
         </div>
     </header>
-    
-    <body>
-        <h1>Explore Listings</h1>
+        
 
        <div class="feed">
+        <h1 class = "explore_header">Explore Listings</h1>
         {% if posts %}
             {% for post in posts %}
             <div class="post">
@@ -32,6 +33,7 @@
                     <img src="{{ url_for('uploaded_file', filename=post.user_image) }}" alt="{{ post.name }}">
                     <a href="/users/{{ post.uniqname }}/">{{ post.name }}</a>
                 </div>
+                <a href = "/posts/{{ post.housing_id }}">
                 <div class="post-body">
                     <img src="{{ url_for('uploaded_file', filename=post.house_image) }}" alt="House image">
                 </div>
@@ -39,6 +41,7 @@
                     <p class="rent">Rent: ${{ post.monthly_rent }}</p>
                     <p>Address: {{ post.street_address }}, {{ post.city }}, {{ post.state }} {{ post.zip_code }}</p>
                 </div>
+                </a>
             </div>
             {% endfor %}
         {% else %}
