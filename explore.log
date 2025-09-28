@@ -1,0 +1,166 @@
+2025-09-28 00:43:45,549 [DEBUG] Harmless debug Message
+2025-09-28 00:43:45,549 [INFO] Just an information
+2025-09-28 00:43:45,549 [WARNING] Its a Warning
+2025-09-28 00:43:45,549 [ERROR] Did you try to divide by zero
+2025-09-28 00:43:45,549 [CRITICAL] Internet is down
+2025-09-28 00:43:45,585 [WARNING]  * Debugger is active!
+2025-09-28 00:43:45,598 [INFO]  * Debugger PIN: 143-418-702
+2025-09-28 00:43:49,835 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:49] "[35m[1mGET /accounts/edit/ HTTP/1.1[0m" 500 -
+2025-09-28 00:43:49,915 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:49] "[36mGET /accounts/edit/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-09-28 00:43:49,915 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:49] "[36mGET /accounts/edit/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:43:49,955 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:49] "GET /accounts/edit/?__debugger__=yes&cmd=resource&f=console.png&s=lyGXfn2JSqAJSIB5NtH1 HTTP/1.1" 200 -
+2025-09-28 00:43:55,100 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:55] "GET / HTTP/1.1" 200 -
+2025-09-28 00:43:55,151 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:43:55,152 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:55] "[36mGET /uploads/107main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:43:55,153 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:55] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:43:55,153 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:55] "[36mGET /uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:43:55,154 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:43:57,002 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:57] "GET / HTTP/1.1" 200 -
+2025-09-28 00:43:57,045 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:57] "[36mGET /uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:43:57,046 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:43:57,047 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:57] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:43:57,049 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:57] "[36mGET /uploads/107main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:43:57,050 [INFO] 127.0.0.1 - - [28/Sep/2025 00:43:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:44:02,237 [INFO] 127.0.0.1 - - [28/Sep/2025 00:44:02] "[35m[1mGET /accounts/edit/ HTTP/1.1[0m" 500 -
+2025-09-28 00:44:02,297 [INFO] 127.0.0.1 - - [28/Sep/2025 00:44:02] "[36mGET /accounts/edit/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:44:02,298 [INFO] 127.0.0.1 - - [28/Sep/2025 00:44:02] "[36mGET /accounts/edit/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-09-28 00:44:02,345 [INFO] 127.0.0.1 - - [28/Sep/2025 00:44:02] "[36mGET /accounts/edit/?__debugger__=yes&cmd=resource&f=console.png&s=lyGXfn2JSqAJSIB5NtH1 HTTP/1.1[0m" 304 -
+2025-09-28 00:44:19,559 [INFO] 127.0.0.1 - - [28/Sep/2025 00:44:19] "GET / HTTP/1.1" 200 -
+2025-09-28 00:44:19,662 [INFO] 127.0.0.1 - - [28/Sep/2025 00:44:19] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-09-28 00:45:03,360 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:03] "GET / HTTP/1.1" 200 -
+2025-09-28 00:45:03,484 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:03] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:45:03,484 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:45:03,486 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:03] "[36mGET /uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:45:03,486 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:03] "[36mGET /uploads/107main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:45:03,489 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:45:04,747 [INFO] Logged in user: emart
+2025-09-28 00:45:04,748 [INFO] Posts fetched: []
+2025-09-28 00:45:04,763 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:04] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 00:45:04,834 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:04] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 00:45:04,835 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:04] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:45:13,905 [INFO] Logged in user: emart
+2025-09-28 00:45:13,906 [INFO] Posts fetched: []
+2025-09-28 00:45:13,910 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:13] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 00:45:13,977 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:13] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:45:13,977 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:13] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 00:45:20,268 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:20] "[32mPOST /accounts/logout/ HTTP/1.1[0m" 302 -
+2025-09-28 00:45:20,293 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:20] "GET /accounts/login/ HTTP/1.1" 200 -
+2025-09-28 00:45:20,345 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:20] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:45:20,345 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:45:27,145 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:27] "[32mPOST /accounts/?target=/ HTTP/1.1[0m" 302 -
+2025-09-28 00:45:27,154 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:27] "GET / HTTP/1.1" 200 -
+2025-09-28 00:45:27,228 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:45:27,235 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:27] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:45:27,246 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:27] "[36mGET /uploads/pfp2.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:45:27,253 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-28 00:45:27,261 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:27] "[36mGET /uploads/102main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:45:28,699 [INFO] Logged in user: munchie
+2025-09-28 00:45:28,699 [INFO] Posts fetched: [
+  {
+    "housing_id": 2,
+    "contact_student_uniqname": "bchao",
+    "street_address": "201 Liberty St",
+    "city": "Ann Arbor",
+    "zip_code": "48101",
+    "state": "MI",
+    "monthly_rent": 1200,
+    "house_image": "101main1.jpg",
+    "user_image": "ad7790405c539894d25ab8dcf0b79eed3341e109.jpg",
+    "name": "Becky Chao",
+    "uniqname": "bchao"
+  },
+  {
+    "housing_id": 3,
+    "contact_student_uniqname": "munchie",
+    "street_address": "350 Packard St",
+    "city": "Ann Arbor",
+    "zip_code": "48102",
+    "state": "MI",
+    "monthly_rent": 1300,
+    "house_image": "102main1.jpg",
+    "user_image": "pfp2.jpg",
+    "name": "Munchie Chen",
+    "uniqname": "munchie"
+  }
+]
+2025-09-28 00:45:28,701 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:28] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 00:45:28,761 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:28] "[33mGET /explore/101main1.jpg HTTP/1.1[0m" 404 -
+2025-09-28 00:45:28,764 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:28] "[33mGET /explore/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg HTTP/1.1[0m" 404 -
+2025-09-28 00:45:28,785 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:28] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 00:45:28,793 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:28] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:45:28,795 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:28] "[33mGET /explore/pfp2.jpg HTTP/1.1[0m" 404 -
+2025-09-28 00:45:28,796 [INFO] 127.0.0.1 - - [28/Sep/2025 00:45:28] "[33mGET /explore/102main1.jpg HTTP/1.1[0m" 404 -
+2025-09-28 00:50:44,656 [INFO] Logged in user: munchie
+2025-09-28 00:50:44,656 [INFO] Posts fetched: [
+  {
+    "housing_id": 2,
+    "contact_student_uniqname": "bchao",
+    "street_address": "201 Liberty St",
+    "city": "Ann Arbor",
+    "zip_code": "48101",
+    "state": "MI",
+    "monthly_rent": 1200,
+    "house_image": "101main1.jpg",
+    "user_image": "ad7790405c539894d25ab8dcf0b79eed3341e109.jpg",
+    "name": "Becky Chao",
+    "uniqname": "bchao"
+  },
+  {
+    "housing_id": 3,
+    "contact_student_uniqname": "munchie",
+    "street_address": "350 Packard St",
+    "city": "Ann Arbor",
+    "zip_code": "48102",
+    "state": "MI",
+    "monthly_rent": 1300,
+    "house_image": "102main1.jpg",
+    "user_image": "pfp2.jpg",
+    "name": "Munchie Chen",
+    "uniqname": "munchie"
+  }
+]
+2025-09-28 00:50:44,671 [INFO] 127.0.0.1 - - [28/Sep/2025 00:50:44] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 00:50:44,803 [INFO] 127.0.0.1 - - [28/Sep/2025 00:50:44] "GET /uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg HTTP/1.1" 200 -
+2025-09-28 00:50:44,803 [INFO] 127.0.0.1 - - [28/Sep/2025 00:50:44] "GET /static/css/explore.css HTTP/1.1" 200 -
+2025-09-28 00:50:44,807 [INFO] 127.0.0.1 - - [28/Sep/2025 00:50:44] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:50:44,807 [INFO] 127.0.0.1 - - [28/Sep/2025 00:50:44] "GET /uploads/101main1.jpg HTTP/1.1" 200 -
+2025-09-28 00:50:44,811 [INFO] 127.0.0.1 - - [28/Sep/2025 00:50:44] "[36mGET /uploads/102main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:50:44,811 [INFO] 127.0.0.1 - - [28/Sep/2025 00:50:44] "[36mGET /uploads/pfp2.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:51:44,870 [INFO] 127.0.0.1 - - [28/Sep/2025 00:51:44] "GET / HTTP/1.1" 200 -
+2025-09-28 00:51:44,936 [INFO] 127.0.0.1 - - [28/Sep/2025 00:51:44] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-09-28 00:52:01,373 [INFO] Logged in user: munchie
+2025-09-28 00:52:01,373 [INFO] Posts fetched: [
+  {
+    "housing_id": 2,
+    "contact_student_uniqname": "bchao",
+    "street_address": "201 Liberty St",
+    "city": "Ann Arbor",
+    "zip_code": "48101",
+    "state": "MI",
+    "monthly_rent": 1200,
+    "house_image": "101main1.jpg",
+    "user_image": "ad7790405c539894d25ab8dcf0b79eed3341e109.jpg",
+    "name": "Becky Chao",
+    "uniqname": "bchao"
+  },
+  {
+    "housing_id": 3,
+    "contact_student_uniqname": "munchie",
+    "street_address": "350 Packard St",
+    "city": "Ann Arbor",
+    "zip_code": "48102",
+    "state": "MI",
+    "monthly_rent": 1300,
+    "house_image": "102main1.jpg",
+    "user_image": "pfp2.jpg",
+    "name": "Munchie Chen",
+    "uniqname": "munchie"
+  }
+]
+2025-09-28 00:52:01,374 [INFO] 127.0.0.1 - - [28/Sep/2025 00:52:01] "GET /explore/ HTTP/1.1" 200 -
+2025-09-28 00:52:01,459 [INFO] 127.0.0.1 - - [28/Sep/2025 00:52:01] "[36mGET /static/css/explore.css HTTP/1.1[0m" 304 -
+2025-09-28 00:52:01,460 [INFO] 127.0.0.1 - - [28/Sep/2025 00:52:01] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-09-28 00:52:01,461 [INFO] 127.0.0.1 - - [28/Sep/2025 00:52:01] "[36mGET /uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:52:01,461 [INFO] 127.0.0.1 - - [28/Sep/2025 00:52:01] "[36mGET /uploads/101main1.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:52:01,463 [INFO] 127.0.0.1 - - [28/Sep/2025 00:52:01] "[36mGET /uploads/pfp2.jpg HTTP/1.1[0m" 304 -
+2025-09-28 00:52:01,464 [INFO] 127.0.0.1 - - [28/Sep/2025 00:52:01] "[36mGET /uploads/102main1.jpg HTTP/1.1[0m" 304 -

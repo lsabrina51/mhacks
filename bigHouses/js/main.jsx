@@ -88,7 +88,7 @@ function PostList({ url }) {
           loader={<h4>Loading...</h4>}
         >
           {posts.map((post) => (
-            <Post key={post.postid} url={post.url} />
+            <Post key={post.housing_id} url={post.url} />
           ))}
           {/* {nextUrl && <a href={nextUrl}>Next Page</a>} */}
         </InfiniteScroll>

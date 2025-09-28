@@ -1,0 +1,83 @@
+/* Feed Container */
+.feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* Individual Post */
+.post {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Post Header */
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0.8rem;
+}
+
+.post-header a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Post Body */
+.post-body {
+    width: 100%;
+}
+
+.post-body img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Post Details (caption, rent, address, etc.) */
+.post-details {
+    padding: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.post-details p {
+    margin: 0.25rem 0;
+}
+
+.post-details .rent {
+    font-weight: 700;
+    color: #0E2D9A;
+}
+
+/* Footer (optional for comments, likes) */
+.post-footer {
+    padding: 0.8rem 1rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* No Matches */
+.no-posts {
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    color: #666;
+}

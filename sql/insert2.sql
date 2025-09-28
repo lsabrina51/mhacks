@@ -63,9 +63,9 @@ INSERT INTO users (
  'Ann Arbor', 'Apartment', '2BR',
  '2025-06-15', '2026-05-30', 5, 2027,
  'pass11', 'pfp1.jpg', 1);
-
+ 
 -- ========================
--- POSTS
+-- POSTS (modified for emart, munchie, jamesl)
 -- ========================
 INSERT INTO posts (
     housing_id, contact_student_uniqname, street_address, city, state, zip_code,
@@ -74,110 +74,96 @@ INSERT INTO posts (
     pets_allowed, furnished, weed_friendly, smoking_friendly, drinking_friendly,
     air_conditioning, heating, utilities_included, distance_from_campus
 ) VALUES
+-- Housing 1
 (1, 'jchen', '100 State St', 'Ann Arbor', 'MI', '48100',
- 42.267892, -83.745941, 838.52, 'Dorm', '2BR', 'All Boys',
- '2025-09-21', '2026-05-02', 1, 1, 0, 0, 0, 0, 0, 0,
+ 42.267892, -83.745941, 900.00, 'Dorm', 'Shared', 'All Girls',
+ '2025-05-25', '2026-05-16', 1, 1, 0, 0, 0, 0, 0, 0,
  1, 0, 1, 0.88),
 
+-- Housing 2
 (2, 'bchao', '201 Liberty St', 'Ann Arbor', 'MI', '48101',
- 42.268924, -83.738767, 1708.66, 'Townhouse', '1BR', 'All Girls',
- '2025-05-21', '2026-09-23', 0, 0, 1, 1, 1, 1, 0, 1,
- 0, 0, 0, 1.54),
+ 42.268924, -83.738767, 1200.00, 'Dorm', 'Shared', 'All Boys',
+ '2025-05-11', '2026-05-25', 1, 1, 0, 0, 0, 0, 0, 0,
+ 1, 0, 1, 1.54),
 
+-- Housing 3
 (3, 'munchie', '350 Packard St', 'Ann Arbor', 'MI', '48102',
- 42.263635, -83.742038, 1570.64, 'Dorm', 'Studio', 'All Boys',
- '2025-09-27', '2026-06-26', 1, 0, 0, 1, 1, 0, 0, 0,
- 0, 1, 1, 1.04),
+ 42.263635, -83.742038, 1300.00, 'Dorm', 'Shared', 'All Boys',
+ '2025-05-11', '2026-05-25', 1, 1, 0, 0, 0, 0, 0, 0,
+ 1, 0, 1, 1.04),
 
+-- Housing 4
 (4, 'ohana', '420 Hill St', 'Ann Arbor', 'MI', '48103',
- 42.278415, -83.740689, 822.11, 'Dorm', 'Shared', 'All Girls',
+ 42.278415, -83.740689, 850.00, 'Dorm', 'Shared', 'All Girls',
  '2025-07-04', '2026-05-17', 1, 0, 0, 1, 1, 0, 1, 1,
  1, 0, 1, 2.07),
 
+-- Housing 5
 (5, 'boone', '512 Oakland Ave', 'Ann Arbor', 'MI', '48104',
- 42.260339, -83.748578, 1392.64, 'Dorm', '1BR', 'All Boys',
+ 42.260339, -83.748578, 1400.00, 'Dorm', 'Shared', 'All Boys',
  '2025-06-08', '2026-05-21', 1, 0, 1, 1, 0, 0, 1, 1,
  0, 0, 1, 2.83),
 
+-- Housing 6
 (6, 'kchen', '603 Packard St', 'Ann Arbor', 'MI', '48105',
- 42.271357, -83.735235, 1051.48, 'House', 'Studio', 'All Boys',
+ 42.271357, -83.735235, 1050.00, 'House', 'Studio', 'All Boys',
  '2025-05-16', '2026-09-12', 1, 0, 1, 0, 1, 0, 1, 1,
  0, 0, 1, 2.80),
 
+-- Housing 7
 (7, 'jmccart', '711 Division St', 'Ann Arbor', 'MI', '48106',
- 42.273743, -83.745700, 1702.67, 'Apartment', '1BR', 'All Boys',
+ 42.273743, -83.745700, 1700.00, 'Apartment', '1BR', 'All Boys',
  '2025-05-28', '2026-08-15', 0, 0, 1, 1, 0, 0, 0, 1,
  1, 1, 0, 0.75),
 
+-- Housing 8
 (8, 'emart', '825 E University Ave', 'Ann Arbor', 'MI', '48107',
- 42.277553, -83.738678, 1447.40, 'Townhouse', '1BR', 'All Girls',
+ 42.277553, -83.738678, 1450.00, 'Townhouse', '1BR', 'All Girls',
  '2025-05-25', '2026-05-16', 0, 0, 0, 1, 1, 1, 1, 0,
  0, 0, 0, 1.18),
 
+-- Housing 9
 (9, 'jamesl', '910 Church St', 'Ann Arbor', 'MI', '48108',
  42.279100, -83.739400, 1650.00, 'Apartment', '2BR', 'Mixed',
  '2025-06-15', '2026-05-30', 1, 1, 1, 0, 1, 0, 0, 1,
  1, 1, 1, 0.65),
 
+-- Housing 10
 (10, 'jcharles', '1200 Catherine St', 'Ann Arbor', 'MI', '48109',
- 42.278504, -83.735147, 1390.66, 'Townhouse', 'Studio', 'Mixed',
+ 42.278504, -83.735147, 1400.00, 'Townhouse', 'Studio', 'Mixed',
  '2025-09-24', '2026-05-04', 0, 0, 0, 1, 0, 1, 1, 0,
  0, 0, 1, 0.89);
 
 -- ========================
--- IMAGES
+-- IMAGES (matching posts)
 -- ========================
--- Housing 1 images
 INSERT INTO images (housing_id, img_url, img_order) VALUES
-(1, '100main1.jpg', 1),
-(1, '100main2.jpg', 2),
-(1, '100main3.png', 3),
-(1, '100main4.jpg', 4),
-(1, '100main5.jpg', 5);
+-- Housing 1
+(1, '100main1.jpg', 1),(1, '100main2.jpg', 2),(1, '100main3.jpg', 3),
 
--- Housing 2 images
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(2, '101main1.jpg', 1),
-(2, '101main2.jpg', 2);
+-- Housing 2
+(2, '101main1.jpg', 1),(2, '101main2.jpg', 2),(2, '101main3.jpg', 3),
 
--- Housing 3 images
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(3, '102main1.jpg', 1),
-(3, '102main2.jpg', 2),
-(3, '102main3.jpg', 3);
+-- Housing 3
+(3, '102main1.jpg', 1),(3, '102main2.jpg', 2),(3, '102main3.jpg', 3),
 
--- Housing 4 images
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(4, '103main1.jpg', 1),
-(4, '103main2.jpg', 2),
-(4, '103main3.jpg', 3),
-(4, '103main4.jpg', 4),
-(4, '103main5.jpg', 5);
+-- Housing 4
+(4, '103main1.jpg', 1),(4, '103main2.jpg', 2),(4, '103main3.jpg', 3),
 
--- Housing 5 images
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(5, '104main1.jpg', 1),
-(5, '104main2.jpg', 2),
-(5, '104main3.png', 3),
-(5, '104main4.png', 4),
-(5, '104main5.png', 5);
+-- Housing 5
+(5, '104main1.jpg', 1),(5, '104main2.jpg', 2),(5, '104main3.jpg', 3),
 
--- Housing 6 images
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(6, '105main1.jpg', 1),
-(6, '105main2.jpg', 2),
-(6, '105main3.jpg', 3);
+-- Housing 6
+(6, '105main1.jpg', 1),(6, '105main2.jpg', 2),(6, '105main3.jpg', 3),
 
--- Housing 7 images
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(7, '106main1.jpg', 1);
+-- Housing 7
+(7, '106main1.jpg', 1),
 
--- Housing 8 images
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(8, '107main1.jpg', 1);
+-- Housing 8
+(8, '107main1.jpg', 1),(8, '107main2.jpg', 2),
 
--- Housing 10 images (fixed last file to be consistent with housing_id=10)
-INSERT INTO images (housing_id, img_url, img_order) VALUES
-(10, '109main1.jpg', 1),
-(10, '109main2.jpg', 2),
-(10, '109main3.jpg', 3);
+-- Housing 9
+(9, '108main1.jpg', 1),(9, '108main2.jpg', 2),(9, '108main3.jpg', 3),
+
+-- Housing 10
+(10, '109main1.jpg', 1),(10, '109main2.jpg', 2),(10, '109main3.jpg', 3);

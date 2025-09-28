@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body> 
+    {% include "add_post.html" %}
     <header class="header">
         <div class="header-left">
             <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
@@ -13,15 +14,18 @@
         </div>
 
         <div class="header-right">
-            <a href="/explore/" class="nav-link">explore</a>
+            <a href="/explore/" class="nav-link">Explore</a>
             <a href="/users/{{ logname }}/" class="nav-link active">{{ logname }}</a>
+            <form action="/accounts/logout/" method="POST" style="display:inline;">
+                <button type="submit" class="nav-link active">Log out</button>
+            </form>
         </div>
     </header>
     <main class="profile-container">
         <!-- Student Info -->
         <section class="student-info">
             <div class="profile-header">
-                {% if logname == student.uniqname %}  
+                {% if logname == student.uniqname %}
                     <a href="/accounts/edit/" class="edit-btn">Edit</a>
                 {% endif %}
                 <img src="{{ url_for('uploaded_file', filename=student.img_url) }}" alt="Profile Pic" class="profile-pic">
@@ -36,14 +40,17 @@
                 </div>
             </div>
         </section>
-
+        <!-- Button to adding post-->
+        {% if logname == student.uniqname %}
+            <label for="add-post-toggle" class="btn">Add Post</label>
+        {% endif %}
         <!-- Housing Listings -->
         <section class="housing-grid">
             <h3>{{ posts|length }} Listing{{ 's' if posts|length != 1 else '' }}</h3>
             {% if posts %}
                 <div class="grid">
                     {% for post in posts %}
-                        <a href="{{ post.housing_id }}" class="housing-card">
+                        <a href="/posts/{{ post.housing_id }}" class="housing-card">
                             <img src="{{ post.images[0] }}" alt="House Image">
                             <div class="card-body">
                                 <h4>${{ post.monthly_rent }}/mo</h4>

@@ -1,29 +1,18 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Big Houses</title>
-       <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    </head>
-    <body>
-        <header class="header">
-            <div class="header-left">
-                <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
-                <h2>Big Houses</h2>
-            </div>
-    
-            <!-- Include a link to /explore/ and /users/{logname}/. -->
-            <div class="header-right">
-                <a href="/explore/" class="nav-link">explore</a>
-                <a href="/users/{{ logname }}/" class="nav-link">{{ logname }}</a>
-            </div>
-        </header>
-
-        <div id="reactEntry">
-            Loading ...
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Houses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div class="welcome-container">
+        <div class="welcome-header">
+            <h1>Big Houses</h1>
+            <p>Find your perfect Wolverine den! One platform, every semester, every need.</p>
+            <a href="{{ url_for('show_login') }}" class="start-btn">Get Started</a>
         </div>
-    <!-- Load JavaScript -->
-        <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
-    </body>
+    </div>
+  </body>
 </html>

@@ -18,91 +18,172 @@
 
         <!-- Include a link to /explore/ and /users/{logname}/. -->
         <div class="header-right">
-            <a href="/explore/" class="nav-link">explore</a>
+            <a href="/explore/" class="nav-link">Explore</a>
             <a href="/users/{{ logname }}/" class="nav-link">{{ logname }}</a>
         </div>
     </header>
 
-    <main class="post-container">
-        <div class="post-card">
-            <!-- Post owner and timestamp -->
-            <div class="post-header">
-                <div class="user-info">
-                    <a href="/users/{{post.owner}}/">
-                        <img src="/uploads/{{post.owner_pic}}" alt="{{post.owner}} profile pic" class="profile-pic">
-                    </a>
-                    <div class="post-meta">
-                        <a href="/users/{{post.owner}}/" class="username">{{post.owner}}</a>
-                        <a href="/posts/{{post.postid}}/" class="timestamp">{{timestamp}}</a>
+    <main class="housing-detail-container">
+        <div class="housing-detail-card">
+            <!-- Left Column: Images and Amenities -->
+            <div class="left-column">
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    {% if post.images %}
+                        <div class="main-image">
+                            <img src="/uploads/{{ post.images[0].img_url }}" alt="Property image" id="mainImage">
+                        </div>
+                        {% if post.images|length > 1 %}
+                            <div class="thumbnail-strip">
+                                {% for image in post.images %}
+                                    <img src="/uploads/{{ image.img_url }}" alt="Property thumbnail" 
+                                         class="thumbnail {% if loop.index0 == 0 %}active{% endif %}" 
+                                         onclick="changeMainImage('{{ image.img_url }}', this)">
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <div class="no-images">
+                            <p>No images available</p>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Amenities -->
+                <div class="amenities-section">
+                    <h3>Amenities</h3>
+                    <div class="amenities-grid">
+                        {% if post.wifi_included %}
+                            <div class="amenity">📶 WiFi Included</div>
+                        {% endif %}
+                        {% if post.laundry %}
+                            <div class="amenity">🧺 Laundry</div>
+                        {% endif %}
+                        {% if post.parking %}
+                            <div class="amenity">🅿️ Parking</div>
+                        {% endif %}
+                        {% if post.pets_allowed %}
+                            <div class="amenity">🐶 Pets Allowed</div>
+                        {% endif %}
+                        {% if post.furnished %}
+                            <div class="amenity">🛋️ Furnished</div>
+                        {% endif %}
+                        {% if post.air_conditioning %}
+                            <div class="amenity">❄️ Air Conditioning</div>
+                        {% endif %}
+                        {% if post.heating %}
+                            <div class="amenity">🔥 Heating</div>
+                        {% endif %}
+                        {% if post.utilities_included %}
+                            <div class="amenity">💡 Utilities Included</div>
+                        {% endif %}
+                        {% if post.weed_friendly %}
+                            <div class="amenity">🌿 Weed Friendly</div>
+                        {% endif %}
+                        {% if post.smoking_friendly %}
+                            <div class="amenity">🚬 Smoking Friendly</div>
+                        {% endif %}
+                        {% if post.drinking_friendly %}
+                            <div class="amenity">🍺 Drinking Friendly</div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
 
-            <!-- Post image -->
-            <div class="post-image">
-                <img src="/uploads/{{post.filename}}" alt="Post image">
-            </div>
-
-            <!-- Post actions -->
-            <div class="post-actions">
-                {% if post.like_owner != logname %}
-                    <!-- Like the post -->
-                    <form class="action-form" action="{{ url_for('update_likes')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="operation" value="like"/>
-                        <input type="hidden" name="postid" value="{{post.postid}}"/>
-                        <button type="submit" name="like" class="action-btn like-btn">♡ Like</button>
-                    </form>
-                {% else %}
-                    <!-- Unlike the post -->
-                    <form class="action-form" action="{{ url_for('update_likes')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="operation" value="unlike"/>
-                        <input type="hidden" name="postid" value="{{post.postid}}"/>
-                        <button type="submit" name="unlike" class="action-btn unlike-btn">♥ Unlike</button>
-                    </form>
-                {% endif %}
-                
-                {% if post.owner == logname %}
-                    <form class="action-form" action="{{ url_for('post')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="operation" value="delete"/>
-                        <input type="hidden" name="postid" value="{{post.postid}}"/>
-                        <button type="submit" name="delete" class="action-btn delete-btn">🗑 Delete</button>
-                    </form>
-                {% endif %}
-            </div>
-
-            <!-- Likes count -->
-            <div class="likes-count">
-                {{post.likes}} {{"like" if post.likes == 1 else "likes"}}
-            </div>
-
-            <!-- Comments section -->
-            <div class="comments-section">
-                <div class="comments-list">
-                    {% for comment in post.comments %}
-                        <div class="comment">
-                            <a href="/users/{{comment.owner}}/" class="comment-author">{{comment.owner}}</a>
-                            <span class="comment-text">{{comment.text}}</span>
-                            {% if comment.owner == logname %}
-                                <form class="delete-comment-form" action="{{ url_for('update_comments')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="operation" value="delete"/>
-                                    <input type="hidden" name="commentid" value="{{comment.commentid}}"/>
-                                    <button type="submit" name="uncomment" class="delete-comment-btn">×</button>
-                                </form>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
+            <!-- Housing Information -->
+            <div class="housing-info">
+                <div class="price-section">
+                    <h1 class="price">${{ "%.0f"|format(post.monthly_rent) }}/month</h1>
+                    <div class="property-type">{{ post.house_type }} • {{ post.room_type }}</div>
                 </div>
 
-                <!-- Add new comment -->
-                <form class="comment-form" action="{{ url_for('update_comments')}}?target=/posts/{{post.postid}}/" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="operation" value="create"/>
-                    <input type="hidden" name="postid" value="{{post.postid}}"/>
-                    <input type="text" name="text" placeholder="Add a comment..." required class="comment-input"/>
-                    <button type="submit" name="comment" class="comment-btn">Post</button>
-                </form>
+                <!-- Address -->
+                <div class="address-section">
+                    <h2 class="address">{{ post.street_address }}</h2>
+                    <p class="location">{{ post.city }}, {{ post.state }} {{ post.zip_code }}</p>
+                </div>
+
+                <!-- Property Details -->
+                <div class="property-details">
+                    <h3>Property Details</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="label">Property Type:</span>
+                            <span class="value">{{ post.house_type }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Room Type:</span>
+                            <span class="value">{{ post.room_type }}</span>
+                        </div>
+                        {% if post.gender %}
+                        <div class="detail-item">
+                            <span class="label">Gender Preference:</span>
+                            <span class="value">{{ post.gender }}</span>
+                        </div>
+                        {% endif %}
+                        {% if post.availability_start %}
+                        <div class="detail-item">
+                            <span class="label">Available From:</span>
+                            <span class="value">{{ post.availability_start }}</span>
+                        </div>
+                        {% endif %}
+                        {% if post.availability_end %}
+                        <div class="detail-item">
+                            <span class="label">Available Until:</span>
+                            <span class="value">{{ post.availability_end }}</span>
+                        </div>
+                        {% endif %}
+                        {% if post.distance_from_campus %}
+                        <div class="detail-item">
+                            <span class="label">Distance to Campus:</span>
+                            <span class="value">{{ "%.1f"|format(post.distance_from_campus) }} miles</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <a href="/users/{{ post.contact_student_uniqname }}/" class="contact-profile">
+                            <img src="{{ url_for('uploaded_file', filename=post.contact_img_url) }}" alt="Contact profile" class="contact-avatar">
+                            <div class="contact-details">
+                                <div class="contact-name">{{ post.contact_name or post.contact_student_uniqname }}</div>
+                                <div class="contact-username">@{{ post.contact_student_uniqname }}</div>
+                            </div>
+                        </a>
+                        <a href="/users/{{ post.contact_student_uniqname }}/" class="contact-btn">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Actions (for owner) -->
+                {% if post.contact_student_uniqname == logname %}
+                <div class="owner-actions">
+                    <form action="{{ url_for('post')}}?target=/posts/{{ post.housing_id }}/" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="operation" value="delete"/>
+                        <input type="hidden" name="housing_id" value="{{ post.housing_id }}"/>
+                        <button type="submit" name="delete" class="delete-listing-btn">Delete Listing</button>
+                    </form>
+                </div>
+                {% endif %}
             </div>
         </div>
     </main>
+
+    <script>
+        function changeMainImage(imageSrc, thumbnail) {
+            document.getElementById('mainImage').src = '/uploads/' + imageSrc;
+            
+            // Remove active class from all thumbnails
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            thumbnail.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>

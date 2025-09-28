@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<head>
+    <title>Big Houses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<!-- CONTENT -->
+<body>
+    <input type="checkbox" id="add-post-toggle" class="modal-toggle" hidden>
+
+    <div class="modal">
+        <label for="add-post-toggle" class="modal-bg"></label>
+        <div class="modal-content">
+            <h2>Add a New Listing</h2>
+            <form action="{{ url_for('post') }}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="create"/>
+
+                <!-- Group each input nicely -->
+                <div class="form-group">
+                    <label>Street Address</label>
+                    <input type="text" name="street_address" required>
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label>State</label>
+                    <input type="text" name="state" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ZIP Code</label>
+                    <input type="text" name="zip_code" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Monthly Rent</label>
+                    <input type="number" name="monthly_rent" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>House Type</label>
+                    <select name="house_type" required>
+                        <option>Apartment</option>
+                        <option>Dorm</option>
+                        <option>House</option>
+                        <option>Townhouse</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Room Type</label>
+                    <input type="text" name="room_type" placeholder="Studio, 1BR, 2BR, Shared..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Gender</label>
+                    <select name="gender">
+                        <option>All Girls</option>
+                        <option>All Boys</option>
+                        <option>Mixed</option>
+                        <option>No Preference</option>
+                    </select>
+                </div>
+
+                <!-- Optional Features (checkboxes) -->
+                <div class="form-group">
+                    <label><input type="checkbox" name="wifi_included"> WiFi Included</label>
+                    <label><input type="checkbox" name="laundry"> Laundry</label>
+                    <label><input type="checkbox" name="parking"> Parking</label>
+                    <label><input type="checkbox" name="pets_allowed"> Pets Allowed</label>
+                    <label><input type="checkbox" name="furnished"> Furnished</label>
+                    <label><input type="checkbox" name="air_conditioning"> Air Conditioning</label>
+                    <label><input type="checkbox" name="heating"> Heating</label>
+                    <label><input type="checkbox" name="weed_friendly"> Weed Friendly</label>
+                    <label><input type="checkbox" name="smoking_friendly"> Smoking Friendly</label>
+                    <label><input type="checkbox" name="drinking_friendly"> Drinking Friendly</label>
+                    <label><input type="checkbox" name="utilities_included"> Utilities Included</label>
+                </div>
+
+                <!-- Availability & Distance -->
+                <div class="form-group">
+                    <label>Available From</label>
+                    <input type="date" name="availability_start">
+                    <label>Available Until</label>
+                    <input type="date" name="availability_end">
+                    <label>Distance from Campus (miles)</label>
+                    <input type="number" step="0.01" name="distance_from_campus">
+                </div>
+
+                <!-- Images -->
+                <div class="form-group">
+                    <label>Upload Images</label>
+                    <input type="file" name="images" multiple accept="image/*">
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <label for="add-post-toggle" class="close-btn">&times;</label>
+        </div>
+    </div>
+
+</body>

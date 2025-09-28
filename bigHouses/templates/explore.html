@@ -1,52 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Big Houses</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/explore.css') }}">
+    </head>
 
-<!-- HEAD -->
-<head>
-    <title>Big Houses</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-
-<!-- CONTENT -->
-<body>
-    <!-- Link to / -->
     <header class="header">
         <div class="header-left">
             <a href="/"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> </a>
             <h2>Big Houses</h2>
         </div>
 
-        <!-- Include a link to /explore/ and /users/{logname}/. -->
         <div class="header-right">
-            <a href="/explore/" class="nav-link active">explore</a>
-            <a href="/users/{{ logname }}/" class="nav-link">{{ logname }}</a>
+            <a href="/explore/" class="nav-link">Explore</a>
+            <a href="/users/{{ logname }}/" class="nav-link active">{{ logname }}</a>
+            <form action="/accounts/logout/" method="POST" style="display:inline;">
+                <button type="submit" class="nav-link logout-btn">Log out</button>
+            </form>
         </div>
     </header>
+    
+    <body>
+        <h1>Explore Listings</h1>
 
-    <main class="explore-container">
-        <div class="explore-header">
-            <h1>Discover People</h1>
-            <p>Find and connect with new roommates</p>
-        </div>
-
-        <div class="users-grid">
-            {% for user in all_users %}
-                <div class="user-card">
-                    <div class="user-card-header">
-                        <img src="{{ user.img_url }}" alt="{{user.name}} profile picture" class="user-avatar">
-                        <div class="user-info">
-                            <h3><a href="/users/{{ user.uniqname }}/">{{user.name}}</a></h3>
-                            <p class="username">@{{user.uniqname}}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="user-actions">
-                        <a href="/users/{{ user.uniqname }}/" class="view-profile-btn">View Profile</a>
-                    </div>
+       <div class="feed">
+        {% if posts %}
+            {% for post in posts %}
+            <div class="post">
+                <div class="post-header">
+                    <img src="{{ url_for('uploaded_file', filename=post.user_image) }}" alt="{{ post.name }}">
+                    <a href="/users/{{ post.uniqname }}/">{{ post.name }}</a>
                 </div>
+                <div class="post-body">
+                    <img src="{{ url_for('uploaded_file', filename=post.house_image) }}" alt="House image">
+                </div>
+                <div class="post-details">
+                    <p class="rent">Rent: ${{ post.monthly_rent }}</p>
+                    <p>Address: {{ post.street_address }}, {{ post.city }}, {{ post.state }} {{ post.zip_code }}</p>
+                </div>
+            </div>
             {% endfor %}
+        {% else %}
+            <p class="no-posts">No matches</p>
+        {% endif %}
         </div>
-    </main>
 
-</body>
+    </body>
 </html>

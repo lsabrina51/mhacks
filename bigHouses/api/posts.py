@@ -53,7 +53,7 @@ def latest_posts():
         }), 400
 
     cur = connection.execute(
-        "SELECT housing_id as housing_id "
+        "SELECT housing_id "
         "FROM posts "
         "WHERE housing_id <= ? "
         "ORDER BY housing_id DESC "
@@ -77,11 +77,15 @@ def latest_posts():
 
     full_url = base_url + ("?" + "&".join(query) if query else "")
 
-    if len(ten_posts) < size:
-        next_url = ""
+    if ten_posts:
+        last_id = ten_posts[-1]["housing_id"]
     else:
-        next_url = (base_url + "?size=" + str(size) + "&page=" +
-                    str(pages + 1) + "&housing_id_lte=" + str(latest_pid))
+        last_id = latest_pid
+    next_url = (
+        f"{base_url}?size={size}&housing_id_lte={last_id}"
+        if len(ten_posts) == size
+        else ""
+    )
 
     context = {"next": next_url,
                "results": ten_posts,
@@ -94,10 +98,10 @@ def latest_posts():
 @bigHouses.app.route('/api/v1/posts/<int:housing_id_url_slug>/')
 def get_post(housing_id_url_slug):
     """Return the details for one post."""
-    if (
-          not flask.request.authorization
-          or "password" not in flask.request.authorization
-      ) and ("username" not in flask.session):
+    if not (
+            (flask.request.authorization and "username" in flask.request.authorization and "password" in flask.request.authorization)
+            or ("username" in flask.session)
+           ):
         error_context = {
           "message": "Forbidden",
           "status_code": 403
@@ -130,12 +134,7 @@ def get_post(housing_id_url_slug):
         return flask.jsonify(**error_context), 404
 
     context = {
-                "created": post_info["created"],
-        "imgUrl": f"/uploads/{post_info['filename']}",
-        "likes": likes_info,
-        "owner": post_info["owner"],
-        "ownerImgUrl": f"/uploads/{owner_info['filename']}",
-        "ownerShowUrl": f"/users/{post_info['owner']}/",
+        "ownerShowUrl": f"/users/{post_info['contact_student_uniqname']}/",
         "postShowUrl": f"/posts/{housing_id_url_slug}/",
         "housing_id": housing_id_url_slug,
         "url": f"/api/v1/posts/{housing_id_url_slug}/"

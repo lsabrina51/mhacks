@@ -288,88 +288,92 @@ def handle_delete():
 
         return flask.redirect(target)
 
-
 def handle_edit_account():
-    """Display /accounts/edit/ route."""
+    """Handle POST /accounts/edit/ route."""
     if 'username' not in flask.session:
         flask.abort(403)
 
+    username = flask.session.get('username')
+    form = flask.request.form
+    fileobj = flask.request.files.get('file')
+
+    # Pull all fields from form (defaults to None if missing)
+    name = form.get("name")
+    email = form.get("email")
+    phone_number = form.get("phone_number")
+    gender = form.get("gender")
+    budget = form.get("budget")
+    house_type_pref = form.get("house_type_pref")
+    room_type_pref = form.get("room_type_pref")
+    move_in_date = form.get("move_in_date")
+    move_out_date = form.get("move_out_date")
+    grad_month = form.get("grad_month")
+    grad_year = form.get("grad_year")
+    car = form.get("car")
+    password = form.get("password")  # optional change
+
+    # Validate required fields
+    if not (name and email):
+        flask.abort(400)
+
+    connection = bigHouses.model.get_db()
+
+    # If new file uploaded, delete old one + save new
+    if fileobj and fileobj.filename:
+        # Fetch old filename
+        old_file = connection.execute(
+            "SELECT img_url FROM users WHERE uniqname = ?",
+            (username,)
+        ).fetchone()
+
+        if old_file and old_file["img_url"]:
+            old_path = pathlib.Path(
+                bigHouses.app.config["UPLOAD_FOLDER"]
+            ) / old_file["img_url"]
+            if old_path.exists():
+                old_path.unlink()
+
+        # Save new file with UUID
+        stem = uuid.uuid4().hex
+        suffix = pathlib.Path(fileobj.filename).suffix.lower()
+        uuid_basename = f"{stem}{suffix}"
+        new_path = pathlib.Path(bigHouses.app.config["UPLOAD_FOLDER"]) / uuid_basename
+        fileobj.save(new_path)
+
+        img_url = uuid_basename
     else:
-        username = flask.session.get('username')
+        # Keep current image
+        old = connection.execute(
+            "SELECT img_url FROM users WHERE uniqname = ?",
+            (username,)
+        ).fetchone()
+        img_url = old["img_url"] if old else None
 
-        fullname = flask.request.form.get('fullname')
-        email = flask.request.form.get('email')
-        fileobj = flask.request.files.get('file')
+    # Build SQL UPDATE statement
+    connection.execute(
+        """
+        UPDATE users
+        SET name = ?, email = ?, phone_number = ?, gender = ?, 
+            budget = ?, house_type_pref = ?, room_type_pref = ?, 
+            move_in_date = ?, move_out_date = ?, grad_month = ?, grad_year = ?, 
+            car = ?, img_url = ?, password = COALESCE(NULLIF(?, ''), password)
+        WHERE uniqname = ?
+        """,
+        (
+            name, email, phone_number, gender,
+            budget, house_type_pref, room_type_pref,
+            move_in_date, move_out_date, grad_month, grad_year,
+            car, img_url, password, username
+        )
+    )
+    connection.commit()
 
-        if not (fullname or email):
-            flask.abort(400)
+    target = flask.request.args.get("target")
+    if not target:
+        return flask.redirect(flask.url_for("show_index"))
 
-        if fileobj:
-            # pfp given
-            connection = bigHouses.model.get_db()
-            # first get old filename so can delete from sql db
-            old_file = connection.execute(
-                """
-                SELECT filename
-                FROM users
-                WHERE uniqname = ?
-                """,
-                (username, )
-            )
+    return flask.redirect(target)
 
-            old_file = old_file.fetchone()
-            # file_name = old_file[0]
-            path = pathlib.Path(
-                bigHouses.app.config["UPLOAD_FOLDER"])/old_file['filename']
-            path.unlink()
-
-            # now we need to update the account including the new photo
-            filename = fileobj.filename
-
-            # Compute base name (filename without directory).
-            # We use a UUID to avoid clashes with existing files,
-            # and ensure that the name is compatible with the filesystem.
-            # For best practive, we ensure uniform file extensions (e.g.
-            # lowercase).
-            stem = uuid.uuid4().hex
-            suffix = pathlib.Path(filename).suffix.lower()
-            uuid_basename = f"{stem}{suffix}"
-
-            # Save to disk
-            path = pathlib.Path(
-                bigHouses.app.config["UPLOAD_FOLDER"])/uuid_basename
-            fileobj.save(path)
-
-            connection.execute(
-                """
-                UPDATE users
-                SET fullname = ?, email = ?, filename = ?
-                WHERE uniqname = ?
-                """,
-                (fullname, email, uuid_basename, username)
-            )
-
-            connection.commit()
-
-        else:
-            # no new photo given
-
-            connection = bigHouses.model.get_db()
-            connection.execute(
-                """
-                UPDATE users
-                SET fullname = ?, email = ?
-                WHERE uniqname = ?
-                """,
-                (fullname, email, username)
-            )
-            connection.commit()
-
-        target = flask.request.args.get('target')
-        if not target:
-            return flask.redirect(flask.url_for('show_index'))
-
-        return flask.redirect(target)
 
 
 def handle_update_password():
